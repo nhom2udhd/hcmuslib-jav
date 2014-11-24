@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://QLTHUVIEN.mssql.somee.com;databaseName=QLTHUVIEN</property>
+    <property name="hibernate.connection.username">lib</property>
+    <property name="hibernate.connection.password">123456789</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping class="entity.Bmtendemuc"/>
+    <mapping class="entity.Donhang"/>
+    <mapping class="entity.Bmsophanloai"/>
+    <mapping class="entity.Learncommons"/>
+    <mapping class="entity.WebpagesMembership"/>
+    <mapping class="entity.Boithuongthiethai"/>
+    <mapping class="entity.Muonphong"/>
+    <mapping class="entity.Luuhanhsach"/>
+    <mapping class="entity.ThietbiDichvu"/>
+    <mapping class="entity.Taphuan"/>
+    <mapping class="entity.Bmnxb"/>
+    <mapping class="entity.WebpagesOauthMembershipId"/>
+    <mapping class="entity.Muontaicho"/>
+    <mapping class="entity.CtDonhang"/>
+    <mapping class="entity.Sach"/>
+    <mapping class="entity.Bmtacgia"/>
+    <mapping class="entity.Phong"/>
+    <mapping class="entity.UserProfile"/>
+    <mapping class="entity.Nhanvien"/>
+    <mapping class="entity.Docgia"/>
+    <mapping class="entity.Bmnhandechinh"/>
+    <mapping class="entity.UserPassword"/>
+    <mapping class="entity.WebpagesOauthMembership"/>
+    <mapping class="entity.Dktaphuan"/>
+    <mapping class="entity.WebpagesRoles"/>
+  </session-factory>
+</hibernate-configuration>
