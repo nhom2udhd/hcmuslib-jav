@@ -1,11 +1,14 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +23,7 @@ public class Nhanvien  implements java.io.Serializable {
 
 
      private String msNv;
+     private UserPassword userPassword;
      private Serializable hoTen;
      private Serializable tinhTrang;
      private Serializable chucVu;
@@ -32,8 +36,9 @@ public class Nhanvien  implements java.io.Serializable {
     public Nhanvien(String msNv) {
         this.msNv = msNv;
     }
-    public Nhanvien(String msNv, Serializable hoTen, Serializable tinhTrang, Serializable chucVu, Serializable loaiNhanVien) {
+    public Nhanvien(String msNv, UserPassword userPassword, Serializable hoTen, Serializable tinhTrang, Serializable chucVu, Serializable loaiNhanVien) {
        this.msNv = msNv;
+       this.userPassword = userPassword;
        this.hoTen = hoTen;
        this.tinhTrang = tinhTrang;
        this.chucVu = chucVu;
@@ -50,6 +55,16 @@ public class Nhanvien  implements java.io.Serializable {
     
     public void setMsNv(String msNv) {
         this.msNv = msNv;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="ID_USER")
+    public UserPassword getUserPassword() {
+        return this.userPassword;
+    }
+    
+    public void setUserPassword(UserPassword userPassword) {
+        this.userPassword = userPassword;
     }
 
     

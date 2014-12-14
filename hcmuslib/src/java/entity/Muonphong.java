@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -26,8 +26,8 @@ public class Muonphong  implements java.io.Serializable {
 
 
      private String idMuonPhong;
-     private Phong phong;
      private Docgia docgia;
+     private Phong phong;
      private Date ngayMuon;
      private Serializable tinhTrang;
 
@@ -38,10 +38,10 @@ public class Muonphong  implements java.io.Serializable {
     public Muonphong(String idMuonPhong) {
         this.idMuonPhong = idMuonPhong;
     }
-    public Muonphong(String idMuonPhong, Phong phong, Docgia docgia, Date ngayMuon, Serializable tinhTrang) {
+    public Muonphong(String idMuonPhong, Docgia docgia, Phong phong, Date ngayMuon, Serializable tinhTrang) {
        this.idMuonPhong = idMuonPhong;
-       this.phong = phong;
        this.docgia = docgia;
+       this.phong = phong;
        this.ngayMuon = ngayMuon;
        this.tinhTrang = tinhTrang;
     }
@@ -59,16 +59,6 @@ public class Muonphong  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="ID_PHONG")
-    public Phong getPhong() {
-        return this.phong;
-    }
-    
-    public void setPhong(Phong phong) {
-        this.phong = phong;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="DOC_GIA")
     public Docgia getDocgia() {
         return this.docgia;
@@ -76,6 +66,16 @@ public class Muonphong  implements java.io.Serializable {
     
     public void setDocgia(Docgia docgia) {
         this.docgia = docgia;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="ID_PHONG")
+    public Phong getPhong() {
+        return this.phong;
+    }
+    
+    public void setPhong(Phong phong) {
+        this.phong = phong;
     }
 
     @Temporal(TemporalType.DATE)

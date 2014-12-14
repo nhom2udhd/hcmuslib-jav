@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -26,8 +26,8 @@ public class Learncommons  implements java.io.Serializable {
 
 
      private String idLc;
-     private ThietbiDichvu thietbiDichvu;
      private Docgia docgia;
+     private ThietbiDichvu thietbiDichvu;
      private Date ngayMuon;
      private Serializable tinhTrang;
 
@@ -38,10 +38,10 @@ public class Learncommons  implements java.io.Serializable {
     public Learncommons(String idLc) {
         this.idLc = idLc;
     }
-    public Learncommons(String idLc, ThietbiDichvu thietbiDichvu, Docgia docgia, Date ngayMuon, Serializable tinhTrang) {
+    public Learncommons(String idLc, Docgia docgia, ThietbiDichvu thietbiDichvu, Date ngayMuon, Serializable tinhTrang) {
        this.idLc = idLc;
-       this.thietbiDichvu = thietbiDichvu;
        this.docgia = docgia;
+       this.thietbiDichvu = thietbiDichvu;
        this.ngayMuon = ngayMuon;
        this.tinhTrang = tinhTrang;
     }
@@ -59,16 +59,6 @@ public class Learncommons  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="ID_THIET_BI")
-    public ThietbiDichvu getThietbiDichvu() {
-        return this.thietbiDichvu;
-    }
-    
-    public void setThietbiDichvu(ThietbiDichvu thietbiDichvu) {
-        this.thietbiDichvu = thietbiDichvu;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="DOC_GIA")
     public Docgia getDocgia() {
         return this.docgia;
@@ -76,6 +66,16 @@ public class Learncommons  implements java.io.Serializable {
     
     public void setDocgia(Docgia docgia) {
         this.docgia = docgia;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="ID_THIET_BI")
+    public ThietbiDichvu getThietbiDichvu() {
+        return this.thietbiDichvu;
+    }
+    
+    public void setThietbiDichvu(ThietbiDichvu thietbiDichvu) {
+        this.thietbiDichvu = thietbiDichvu;
     }
 
     @Temporal(TemporalType.DATE)

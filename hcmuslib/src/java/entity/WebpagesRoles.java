@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -9,7 +9,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -27,7 +30,8 @@ public class WebpagesRoles  implements java.io.Serializable {
 
      private int roleId;
      private Serializable roleName;
-     private Set<UserProfile> userProfiles = new HashSet<UserProfile>(0);
+     private Set<UserPassword> userPasswords = new HashSet<UserPassword>(0);
+     private Set<UserPassword> userPasswords_1 = new HashSet<UserPassword>(0);
 
     public WebpagesRoles() {
     }
@@ -37,10 +41,11 @@ public class WebpagesRoles  implements java.io.Serializable {
         this.roleId = roleId;
         this.roleName = roleName;
     }
-    public WebpagesRoles(int roleId, Serializable roleName, Set<UserProfile> userProfiles) {
+    public WebpagesRoles(int roleId, Serializable roleName, Set<UserPassword> userPasswords, Set<UserPassword> userPasswords_1) {
        this.roleId = roleId;
        this.roleName = roleName;
-       this.userProfiles = userProfiles;
+       this.userPasswords = userPasswords;
+       this.userPasswords_1 = userPasswords_1;
     }
    
      @Id 
@@ -65,13 +70,25 @@ public class WebpagesRoles  implements java.io.Serializable {
         this.roleName = roleName;
     }
 
-@ManyToMany(fetch=FetchType.LAZY, mappedBy="webpagesRoleses")
-    public Set<UserProfile> getUserProfiles() {
-        return this.userProfiles;
+@ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="webpages_UsersInRoles", schema="dbo", catalog="QLTHUVIEN", joinColumns = { 
+        @JoinColumn(name="RoleId", nullable=false, updatable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="UserId", nullable=false, updatable=false) })
+    public Set<UserPassword> getUserPasswords() {
+        return this.userPasswords;
     }
     
-    public void setUserProfiles(Set<UserProfile> userProfiles) {
-        this.userProfiles = userProfiles;
+    public void setUserPasswords(Set<UserPassword> userPasswords) {
+        this.userPasswords = userPasswords;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="webpagesRoles")
+    public Set<UserPassword> getUserPasswords_1() {
+        return this.userPasswords_1;
+    }
+    
+    public void setUserPasswords_1(Set<UserPassword> userPasswords_1) {
+        this.userPasswords_1 = userPasswords_1;
     }
 
 
