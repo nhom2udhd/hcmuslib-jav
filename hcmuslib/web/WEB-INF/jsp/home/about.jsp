@@ -21,10 +21,10 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.htm">Trang chủ</a></li>
-                        <li class ="active"><a href="/home/about.htm">Giới thiệu</a></li>
+                        <li><a href="../index.htm">Trang chủ</a></li>                       
+                        <li class ="active"><a href="about.htm">Giới thiệu</a></li>
                         <li><a href="services.html">Thư viện</a></li>
-                        <li><a href="/home/contact.htm">Liên hệ - Góp ý</a></li>
+                        <li><a href="contact.htm">Liên hệ - Góp ý</a></li>
                     </ul>
                 </div>
             </div>

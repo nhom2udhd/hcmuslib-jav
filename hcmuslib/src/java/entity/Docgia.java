@@ -1,5 +1,5 @@
 package entity;
-// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
+
 
 
 import java.io.Serializable;
@@ -26,7 +26,9 @@ public class Docgia  implements java.io.Serializable {
 
 
      private String msThe;
+
      public UserPassword userPassword;
+
      private Serializable hoTen;
      private Serializable tinhTrang;
      private String email;

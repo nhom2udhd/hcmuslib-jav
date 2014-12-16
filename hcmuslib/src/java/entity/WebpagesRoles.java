@@ -1,5 +1,9 @@
 package entity;
+<<<<<<< HEAD
 // Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
+=======
+// Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
+>>>>>>> origin/master
 
 
 import java.io.Serializable;
@@ -41,7 +45,9 @@ public class WebpagesRoles  implements java.io.Serializable {
         this.roleId = roleId;
         this.roleName = roleName;
     }
+
     public WebpagesRoles(int roleId, String roleName, Set<UserPassword> userPasswords, Set<UserPassword> userPasswords_1) {
+
        this.roleId = roleId;
        this.roleName = roleName;
        this.userPasswords = userPasswords;

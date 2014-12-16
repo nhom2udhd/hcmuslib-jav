@@ -1,5 +1,5 @@
 package entity;
-// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
+
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class BmChuongtapchi  implements java.io.Serializable {
 
      private int idChuong;
      private Anpham anpham;
-     private Serializable tenChuong;
+     private String tenChuong;
      private String noiDung;
 
     public BmChuongtapchi() {
@@ -34,7 +34,7 @@ public class BmChuongtapchi  implements java.io.Serializable {
     public BmChuongtapchi(int idChuong) {
         this.idChuong = idChuong;
     }
-    public BmChuongtapchi(int idChuong, Anpham anpham, Serializable tenChuong, String noiDung) {
+    public BmChuongtapchi(int idChuong, Anpham anpham, String tenChuong, String noiDung) {
        this.idChuong = idChuong;
        this.anpham = anpham;
        this.tenChuong = tenChuong;
@@ -65,11 +65,11 @@ public class BmChuongtapchi  implements java.io.Serializable {
 
     
     @Column(name="TEN_CHUONG")
-    public Serializable getTenChuong() {
+    public String getTenChuong() {
         return this.tenChuong;
     }
     
-    public void setTenChuong(Serializable tenChuong) {
+    public void setTenChuong(String tenChuong) {
         this.tenChuong = tenChuong;
     }
 

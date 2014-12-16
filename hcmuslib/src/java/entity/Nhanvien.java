@@ -1,5 +1,5 @@
 package entity;
-// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
+
 
 
 import java.io.Serializable;
@@ -23,7 +23,9 @@ public class Nhanvien  implements java.io.Serializable {
 
 
      private String msNv;
+
      public UserPassword userPassword;
+
      private Serializable hoTen;
      private Serializable tinhTrang;
      private Serializable chucVu;

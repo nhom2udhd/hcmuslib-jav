@@ -1,5 +1,5 @@
 package entity;
-// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
+
 
 
 import java.io.Serializable;
@@ -8,6 +8,10 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,9 +30,11 @@ public class Anpham  implements java.io.Serializable {
 
 
      private int idAnpham;
+
+     private Bmnxb bmnxb;
      private Bmsophanloai bmsophanloai;
      private Bmtacgia bmtacgia;
-     private Bmnxb bmnxb;
+
      private String tenAnpham;
      private String cqChuquan;
      private String dcToasoan;
@@ -43,11 +49,19 @@ public class Anpham  implements java.io.Serializable {
     public Anpham(int idAnpham) {
         this.idAnpham = idAnpham;
     }
+<<<<<<< HEAD
     public Anpham(int idAnpham, Bmsophanloai bmsophanloai, Bmtacgia bmtacgia, Bmnxb bmnxb, String tenAnpham, String cqChuquan, String dcToasoan, Integer dkxb, Set<BmChuongtapchi> bmChuongtapchis, Set<BmKytapchi> bmKytapchis) {
        this.idAnpham = idAnpham;
        this.bmsophanloai = bmsophanloai;
        this.bmtacgia = bmtacgia;
        this.bmnxb = bmnxb;
+=======
+    public Anpham(int idAnpham, Bmnxb bmnxb, Bmsophanloai bmsophanloai, Bmtacgia bmtacgia, String tenAnpham, String cqChuquan, String dcToasoan, Integer dkxb, Set<BmChuongtapchi> bmChuongtapchis, Set<BmKytapchi> bmKytapchis) {
+       this.idAnpham = idAnpham;
+       this.bmnxb = bmnxb;
+       this.bmsophanloai = bmsophanloai;
+       this.bmtacgia = bmtacgia;
+>>>>>>> origin/master
        this.tenAnpham = tenAnpham;
        this.cqChuquan = cqChuquan;
        this.dcToasoan = dcToasoan;
@@ -58,7 +72,11 @@ public class Anpham  implements java.io.Serializable {
    
      @Id 
 
+<<<<<<< HEAD
     
+=======
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+>>>>>>> origin/master
     @Column(name="ID_ANPHAM", unique=true, nullable=false)
     public int getIdAnpham() {
         return this.idAnpham;
@@ -69,6 +87,19 @@ public class Anpham  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
+<<<<<<< HEAD
+=======
+    @JoinColumn(name="NXB")
+    public Bmnxb getBmnxb() {
+        return this.bmnxb;
+    }
+    
+    public void setBmnxb(Bmnxb bmnxb) {
+        this.bmnxb = bmnxb;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+>>>>>>> origin/master
     @JoinColumn(name="SOPHANLOAI")
     public Bmsophanloai getBmsophanloai() {
         return this.bmsophanloai;
@@ -88,6 +119,7 @@ public class Anpham  implements java.io.Serializable {
         this.bmtacgia = bmtacgia;
     }
 
+<<<<<<< HEAD
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="NXB")
     public Bmnxb getBmnxb() {
@@ -98,6 +130,8 @@ public class Anpham  implements java.io.Serializable {
         this.bmnxb = bmnxb;
     }
 
+=======
+>>>>>>> origin/master
     
     @Column(name="TEN_ANPHAM")
     public String getTenAnpham() {

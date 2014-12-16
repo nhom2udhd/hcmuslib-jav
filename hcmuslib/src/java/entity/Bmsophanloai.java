@@ -1,12 +1,14 @@
 package entity;
-// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
 
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -43,7 +45,7 @@ public class Bmsophanloai  implements java.io.Serializable {
    
      @Id 
 
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID_SPL", unique=true, nullable=false, length=10)
     public String getIdSpl() {
         return this.idSpl;

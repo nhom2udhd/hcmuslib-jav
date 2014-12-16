@@ -1,5 +1,5 @@
 package entity;
-// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
+
 
 
 import java.io.Serializable;
@@ -27,8 +27,8 @@ public class BmKytapchi  implements java.io.Serializable {
 
      private int idKy;
      private Anpham anpham;
-     private Serializable tenKy;
-     private Serializable urlHinh;
+     private String tenKy;
+     private String urlHinh;
      private Date thoiGianDang;
      private String loiGioiThieu;
 
@@ -39,7 +39,7 @@ public class BmKytapchi  implements java.io.Serializable {
     public BmKytapchi(int idKy) {
         this.idKy = idKy;
     }
-    public BmKytapchi(int idKy, Anpham anpham, Serializable tenKy, Serializable urlHinh, Date thoiGianDang, String loiGioiThieu) {
+    public BmKytapchi(int idKy, Anpham anpham, String tenKy, String urlHinh, Date thoiGianDang, String loiGioiThieu) {
        this.idKy = idKy;
        this.anpham = anpham;
        this.tenKy = tenKy;
@@ -72,21 +72,21 @@ public class BmKytapchi  implements java.io.Serializable {
 
     
     @Column(name="TEN_KY")
-    public Serializable getTenKy() {
+    public String getTenKy() {
         return this.tenKy;
     }
     
-    public void setTenKy(Serializable tenKy) {
+    public void setTenKy(String tenKy) {
         this.tenKy = tenKy;
     }
 
     
     @Column(name="URL_HINH")
-    public Serializable getUrlHinh() {
+    public String getUrlHinh() {
         return this.urlHinh;
     }
     
-    public void setUrlHinh(Serializable urlHinh) {
+    public void setUrlHinh(String urlHinh) {
         this.urlHinh = urlHinh;
     }
 

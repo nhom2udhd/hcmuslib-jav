@@ -1,5 +1,5 @@
 package entity;
-// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
+
 
 
 import java.io.Serializable;
@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,10 +26,12 @@ public class Bmtacgia  implements java.io.Serializable {
 
 
      private String idTacGia;
-     private Serializable hoTen;
-     private Serializable butDanh;
-     private Serializable thongTinBoSung;
-     private Serializable tinhTrang;
+
+     private String hoTen;
+     private String butDanh;
+     private String thongTinBoSung;
+     private String tinhTrang;
+
      private Set<Anpham> anphams = new HashSet<Anpham>(0);
      private Set<Sach> saches = new HashSet<Sach>(0);
 
@@ -38,7 +42,9 @@ public class Bmtacgia  implements java.io.Serializable {
     public Bmtacgia(String idTacGia) {
         this.idTacGia = idTacGia;
     }
-    public Bmtacgia(String idTacGia, Serializable hoTen, Serializable butDanh, Serializable thongTinBoSung, Serializable tinhTrang, Set<Anpham> anphams, Set<Sach> saches) {
+
+    public Bmtacgia(String idTacGia, String hoTen, String butDanh, String thongTinBoSung, String tinhTrang, Set<Anpham> anphams, Set<Sach> saches) {
+
        this.idTacGia = idTacGia;
        this.hoTen = hoTen;
        this.butDanh = butDanh;
@@ -50,7 +56,7 @@ public class Bmtacgia  implements java.io.Serializable {
    
      @Id 
 
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID_TAC_GIA", unique=true, nullable=false, length=10)
     public String getIdTacGia() {
         return this.idTacGia;
@@ -62,41 +68,41 @@ public class Bmtacgia  implements java.io.Serializable {
 
     
     @Column(name="HO_TEN")
-    public Serializable getHoTen() {
+    public String getHoTen() {
         return this.hoTen;
     }
     
-    public void setHoTen(Serializable hoTen) {
+    public void setHoTen(String hoTen) {
         this.hoTen = hoTen;
     }
 
     
     @Column(name="BUT_DANH")
-    public Serializable getButDanh() {
+    public String getButDanh() {
         return this.butDanh;
     }
     
-    public void setButDanh(Serializable butDanh) {
+    public void setButDanh(String butDanh) {
         this.butDanh = butDanh;
     }
 
     
     @Column(name="THONG_TIN_BO_SUNG")
-    public Serializable getThongTinBoSung() {
+    public String getThongTinBoSung() {
         return this.thongTinBoSung;
     }
     
-    public void setThongTinBoSung(Serializable thongTinBoSung) {
+    public void setThongTinBoSung(String thongTinBoSung) {
         this.thongTinBoSung = thongTinBoSung;
     }
 
     
     @Column(name="TINH_TRANG")
-    public Serializable getTinhTrang() {
+    public String getTinhTrang() {
         return this.tinhTrang;
     }
     
-    public void setTinhTrang(Serializable tinhTrang) {
+    public void setTinhTrang(String tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
 
