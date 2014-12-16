@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;
@@ -28,6 +28,7 @@ public class Bmtacgia  implements java.io.Serializable {
      private Serializable butDanh;
      private Serializable thongTinBoSung;
      private Serializable tinhTrang;
+     private Set<Anpham> anphams = new HashSet<Anpham>(0);
      private Set<Sach> saches = new HashSet<Sach>(0);
 
     public Bmtacgia() {
@@ -37,12 +38,13 @@ public class Bmtacgia  implements java.io.Serializable {
     public Bmtacgia(String idTacGia) {
         this.idTacGia = idTacGia;
     }
-    public Bmtacgia(String idTacGia, Serializable hoTen, Serializable butDanh, Serializable thongTinBoSung, Serializable tinhTrang, Set<Sach> saches) {
+    public Bmtacgia(String idTacGia, Serializable hoTen, Serializable butDanh, Serializable thongTinBoSung, Serializable tinhTrang, Set<Anpham> anphams, Set<Sach> saches) {
        this.idTacGia = idTacGia;
        this.hoTen = hoTen;
        this.butDanh = butDanh;
        this.thongTinBoSung = thongTinBoSung;
        this.tinhTrang = tinhTrang;
+       this.anphams = anphams;
        this.saches = saches;
     }
    
@@ -96,6 +98,15 @@ public class Bmtacgia  implements java.io.Serializable {
     
     public void setTinhTrang(Serializable tinhTrang) {
         this.tinhTrang = tinhTrang;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="bmtacgia")
+    public Set<Anpham> getAnphams() {
+        return this.anphams;
+    }
+    
+    public void setAnphams(Set<Anpham> anphams) {
+        this.anphams = anphams;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="bmtacgia")

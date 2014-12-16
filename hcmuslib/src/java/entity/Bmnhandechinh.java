@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class Bmnhandechinh  implements java.io.Serializable {
 
 
      private String idNhanDe;
-     private Serializable nhanDeChinh;
+     private String nhanDeChinh;
      private Set<Sach> saches = new HashSet<Sach>(0);
 
     public Bmnhandechinh() {
@@ -34,7 +34,7 @@ public class Bmnhandechinh  implements java.io.Serializable {
     public Bmnhandechinh(String idNhanDe) {
         this.idNhanDe = idNhanDe;
     }
-    public Bmnhandechinh(String idNhanDe, Serializable nhanDeChinh, Set<Sach> saches) {
+    public Bmnhandechinh(String idNhanDe, String nhanDeChinh, Set<Sach> saches) {
        this.idNhanDe = idNhanDe;
        this.nhanDeChinh = nhanDeChinh;
        this.saches = saches;
@@ -54,11 +54,11 @@ public class Bmnhandechinh  implements java.io.Serializable {
 
     
     @Column(name="NHAN_DE_CHINH")
-    public Serializable getNhanDeChinh() {
+    public String getNhanDeChinh() {
         return this.nhanDeChinh;
     }
     
-    public void setNhanDeChinh(Serializable nhanDeChinh) {
+    public void setNhanDeChinh(String nhanDeChinh) {
         this.nhanDeChinh = nhanDeChinh;
     }
 

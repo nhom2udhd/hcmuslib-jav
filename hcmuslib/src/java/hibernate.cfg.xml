@@ -9,8 +9,10 @@
     <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="entity.Bmtendemuc"/>
     <mapping class="entity.Donhang"/>
+    <mapping class="entity.Anpham"/>
     <mapping class="entity.Bmsophanloai"/>
     <mapping class="entity.Learncommons"/>
+    <mapping class="entity.BmChuongtapchi"/>
     <mapping class="entity.WebpagesMembership"/>
     <mapping class="entity.Boithuongthiethai"/>
     <mapping class="entity.Muonphong"/>
@@ -30,6 +32,7 @@
     <mapping class="entity.Bmnhandechinh"/>
     <mapping class="entity.UserPassword"/>
     <mapping class="entity.WebpagesOauthMembership"/>
+    <mapping class="entity.BmKytapchi"/>
     <mapping class="entity.Dktaphuan"/>
     <mapping class="entity.WebpagesRoles"/>
   </session-factory>

@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;
@@ -27,11 +27,12 @@ public class Bmnxb  implements java.io.Serializable {
 
 
      private String idNxb;
-     private Serializable tenNxb;
+     private String tenNxb;
      private Date ngayThanhLap;
-     private Serializable thongTinBoSung;
-     private Serializable tinhTrang;
+     private String thongTinBoSung;
+     private String tinhTrang;
      private Set<Sach> saches = new HashSet<Sach>(0);
+     private Set<Anpham> anphams = new HashSet<Anpham>(0);
 
     public Bmnxb() {
     }
@@ -40,13 +41,14 @@ public class Bmnxb  implements java.io.Serializable {
     public Bmnxb(String idNxb) {
         this.idNxb = idNxb;
     }
-    public Bmnxb(String idNxb, Serializable tenNxb, Date ngayThanhLap, Serializable thongTinBoSung, Serializable tinhTrang, Set<Sach> saches) {
+    public Bmnxb(String idNxb, String tenNxb, Date ngayThanhLap, String thongTinBoSung, String tinhTrang, Set<Sach> saches, Set<Anpham> anphams) {
        this.idNxb = idNxb;
        this.tenNxb = tenNxb;
        this.ngayThanhLap = ngayThanhLap;
        this.thongTinBoSung = thongTinBoSung;
        this.tinhTrang = tinhTrang;
        this.saches = saches;
+       this.anphams = anphams;
     }
    
      @Id 
@@ -63,11 +65,11 @@ public class Bmnxb  implements java.io.Serializable {
 
     
     @Column(name="TEN_NXB")
-    public Serializable getTenNxb() {
+    public String getTenNxb() {
         return this.tenNxb;
     }
     
-    public void setTenNxb(Serializable tenNxb) {
+    public void setTenNxb(String tenNxb) {
         this.tenNxb = tenNxb;
     }
 
@@ -83,21 +85,21 @@ public class Bmnxb  implements java.io.Serializable {
 
     
     @Column(name="THONG_TIN_BO_SUNG")
-    public Serializable getThongTinBoSung() {
+    public String getThongTinBoSung() {
         return this.thongTinBoSung;
     }
     
-    public void setThongTinBoSung(Serializable thongTinBoSung) {
+    public void setThongTinBoSung(String thongTinBoSung) {
         this.thongTinBoSung = thongTinBoSung;
     }
 
     
     @Column(name="TINH_TRANG")
-    public Serializable getTinhTrang() {
+    public String getTinhTrang() {
         return this.tinhTrang;
     }
     
-    public void setTinhTrang(Serializable tinhTrang) {
+    public void setTinhTrang(String tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
 
@@ -108,6 +110,15 @@ public class Bmnxb  implements java.io.Serializable {
     
     public void setSaches(Set<Sach> saches) {
         this.saches = saches;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="bmnxb")
+    public Set<Anpham> getAnphams() {
+        return this.anphams;
+    }
+    
+    public void setAnphams(Set<Anpham> anphams) {
+        this.anphams = anphams;
     }
 
 

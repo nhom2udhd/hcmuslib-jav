@@ -13,4 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/supplement")
 public class SupplementController {
     
+    @RequestMapping(value = "/index")
+    public String index(){
+        return "supplement/index";
+    }
 }

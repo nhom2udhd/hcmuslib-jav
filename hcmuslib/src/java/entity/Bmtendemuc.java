@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class Bmtendemuc  implements java.io.Serializable {
 
 
      private String idDeMuc;
-     private Serializable tenDeMuc;
+     private String tenDeMuc;
      private Set<Sach> saches = new HashSet<Sach>(0);
 
     public Bmtendemuc() {
@@ -34,7 +34,7 @@ public class Bmtendemuc  implements java.io.Serializable {
     public Bmtendemuc(String idDeMuc) {
         this.idDeMuc = idDeMuc;
     }
-    public Bmtendemuc(String idDeMuc, Serializable tenDeMuc, Set<Sach> saches) {
+    public Bmtendemuc(String idDeMuc, String tenDeMuc, Set<Sach> saches) {
        this.idDeMuc = idDeMuc;
        this.tenDeMuc = tenDeMuc;
        this.saches = saches;
@@ -54,11 +54,11 @@ public class Bmtendemuc  implements java.io.Serializable {
 
     
     @Column(name="TEN_DE_MUC")
-    public Serializable getTenDeMuc() {
+    public String getTenDeMuc() {
         return this.tenDeMuc;
     }
     
-    public void setTenDeMuc(Serializable tenDeMuc) {
+    public void setTenDeMuc(String tenDeMuc) {
         this.tenDeMuc = tenDeMuc;
     }
 

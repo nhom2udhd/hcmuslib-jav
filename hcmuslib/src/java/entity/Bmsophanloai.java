@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -24,6 +24,7 @@ public class Bmsophanloai  implements java.io.Serializable {
 
      private String idSpl;
      private String soPhanLoai;
+     private Set<Anpham> anphams = new HashSet<Anpham>(0);
      private Set<Sach> saches = new HashSet<Sach>(0);
 
     public Bmsophanloai() {
@@ -33,9 +34,10 @@ public class Bmsophanloai  implements java.io.Serializable {
     public Bmsophanloai(String idSpl) {
         this.idSpl = idSpl;
     }
-    public Bmsophanloai(String idSpl, String soPhanLoai, Set<Sach> saches) {
+    public Bmsophanloai(String idSpl, String soPhanLoai, Set<Anpham> anphams, Set<Sach> saches) {
        this.idSpl = idSpl;
        this.soPhanLoai = soPhanLoai;
+       this.anphams = anphams;
        this.saches = saches;
     }
    
@@ -59,6 +61,15 @@ public class Bmsophanloai  implements java.io.Serializable {
     
     public void setSoPhanLoai(String soPhanLoai) {
         this.soPhanLoai = soPhanLoai;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="bmsophanloai")
+    public Set<Anpham> getAnphams() {
+        return this.anphams;
+    }
+    
+    public void setAnphams(Set<Anpham> anphams) {
+        this.anphams = anphams;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="bmsophanloai")

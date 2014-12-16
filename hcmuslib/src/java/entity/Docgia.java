@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;
@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,6 +26,7 @@ public class Docgia  implements java.io.Serializable {
 
 
      private String msThe;
+     public UserPassword userPassword;
      private Serializable hoTen;
      private Serializable tinhTrang;
      private String email;
@@ -43,8 +46,9 @@ public class Docgia  implements java.io.Serializable {
     public Docgia(String msThe) {
         this.msThe = msThe;
     }
-    public Docgia(String msThe, Serializable hoTen, Serializable tinhTrang, String email, Serializable loaiDocGia, String imageUrl, Set<Luuhanhsach> luuhanhsaches, Set<Muontaicho> muontaichos, Set<Learncommons> learncommonses, Set<Boithuongthiethai> boithuongthiethais, Set<Muonphong> muonphongs, Set<Dktaphuan> dktaphuans) {
+    public Docgia(String msThe, UserPassword userPassword, Serializable hoTen, Serializable tinhTrang, String email, Serializable loaiDocGia, String imageUrl, Set<Luuhanhsach> luuhanhsaches, Set<Muontaicho> muontaichos, Set<Learncommons> learncommonses, Set<Boithuongthiethai> boithuongthiethais, Set<Muonphong> muonphongs, Set<Dktaphuan> dktaphuans) {
        this.msThe = msThe;
+       this.userPassword = userPassword;
        this.hoTen = hoTen;
        this.tinhTrang = tinhTrang;
        this.email = email;
@@ -68,6 +72,16 @@ public class Docgia  implements java.io.Serializable {
     
     public void setMsThe(String msThe) {
         this.msThe = msThe;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="ID_USER")
+    public UserPassword getUserPassword() {
+        return this.userPassword;
+    }
+    
+    public void setUserPassword(UserPassword userPassword) {
+        this.userPassword = userPassword;
     }
 
     

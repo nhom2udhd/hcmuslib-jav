@@ -30,6 +30,7 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/animate.css" rel="stylesheet">
         <link type="text/css" href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
         <link type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css" rel="stylesheet">
+       
 
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/ico/favicon.ico">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${pageContext.request.contextPath}/images/ico/apple-touch-icon-144-precomposed.png">

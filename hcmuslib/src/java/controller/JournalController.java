@@ -13,5 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/journal")
 public class JournalController {
-    
+    @RequestMapping(value="/index")
+    public String index(){
+        return "journal/index";
+    }
 }
