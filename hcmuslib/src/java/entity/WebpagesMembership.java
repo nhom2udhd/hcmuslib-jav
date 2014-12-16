@@ -1,9 +1,5 @@
 package entity;
-<<<<<<< HEAD
-// Generated Dec 12, 2014 9:07:56 PM by Hibernate Tools 3.6.0
-=======
-// Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
->>>>>>> origin/master
+
 
 
 import java.io.Serializable;

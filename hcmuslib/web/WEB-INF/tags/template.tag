@@ -1,9 +1,3 @@
-<%-- 
-    Document   : template
-    Created on : Nov 27, 2014, 8:41:10 AM
-    Author     : 11122_000
---%>
-
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
 
 <%-- The list of normal or fragment attributes can be specified here: --%>

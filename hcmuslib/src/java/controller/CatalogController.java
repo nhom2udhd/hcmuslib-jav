@@ -99,6 +99,5 @@ public class CatalogController {
     {
         
         return "catalog/bmnxb";
->>>>>>> origin/master
     }
 }

@@ -1,9 +1,6 @@
 package entity;
 
 // Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
-
-
-
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -42,25 +39,12 @@ public class UserPassword implements java.io.Serializable {
     private Set<Nhanvien> nhanviens = new HashSet<Nhanvien>(0);
     private Set<WebpagesRoles> webpagesRoleses = new HashSet<WebpagesRoles>(0);
 
-public class UserPassword  implements java.io.Serializable {
-
-
-     private int idUser;
-     private WebpagesRoles webpagesRoles;
-     private String userName;
-     private String password;
-     private Set<Docgia> docgias = new HashSet<Docgia>(0);
-     private Set<Nhanvien> nhanviens = new HashSet<Nhanvien>(0);
-     private Set<WebpagesRoles> webpagesRoleses = new HashSet<WebpagesRoles>(0);
-
-
     public UserPassword() {
     }
 
     public UserPassword(int idUser) {
         this.idUser = idUser;
     }
-
 
     public UserPassword(int idUser, WebpagesRoles webpagesRoles, String userName, String password, Set<Docgia> docgias, Set<Nhanvien> nhanviens, Set<WebpagesRoles> webpagesRoleses) {
         this.idUser = idUser;
@@ -84,18 +68,15 @@ public class UserPassword  implements java.io.Serializable {
         this.idUser = idUser;
     }
 
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ROLE")
     public WebpagesRoles getWebpagesRoles() {
         return this.webpagesRoles;
     }
 
-
     public void setWebpagesRoles(WebpagesRoles webpagesRoles) {
         this.webpagesRoles = webpagesRoles;
     }
-
 
     @Column(name = "USER_NAME", length = 50)
 
@@ -116,35 +97,9 @@ public class UserPassword  implements java.io.Serializable {
         this.password = password;
     }
 
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="userPassword")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userPassword")
     public Set<Docgia> getDocgias() {
         return this.docgias;
-    }
-    
-    public void setDocgias(Set<Docgia> docgias) {
-        this.docgias = docgias;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="userPassword")
-    public Set<Nhanvien> getNhanviens() {
-        return this.nhanviens;
-    }
-    
-    public void setNhanviens(Set<Nhanvien> nhanviens) {
-        this.nhanviens = nhanviens;
-    }
-
-@ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="webpages_UsersInRoles", schema="dbo", catalog="QLTHUVIEN", joinColumns = { 
-        @JoinColumn(name="UserId", nullable=false, updatable=false) }, inverseJoinColumns = { 
-        @JoinColumn(name="RoleId", nullable=false, updatable=false) })
-    public Set<WebpagesRoles> getWebpagesRoleses() {
-        return this.webpagesRoleses;
-    }
-    
-    public void setWebpagesRoleses(Set<WebpagesRoles> webpagesRoleses) {
-        this.webpagesRoleses = webpagesRoleses;
     }
 
     public void setDocgias(Set<Docgia> docgias) {
@@ -171,5 +126,7 @@ public class UserPassword  implements java.io.Serializable {
     public void setWebpagesRoleses(Set<WebpagesRoles> webpagesRoleses) {
         this.webpagesRoleses = webpagesRoleses;
     }
+
+   
 
 }
