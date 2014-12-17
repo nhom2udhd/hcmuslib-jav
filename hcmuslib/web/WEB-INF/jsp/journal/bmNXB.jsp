@@ -1,9 +1,3 @@
-<%-- 
-    Document   : bmNXB
-    Created on : Dec 12, 2014, 11:29:34 PM
-    Author     : Phu
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="me" uri="/WEB-INF/tlds/tags.tld"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

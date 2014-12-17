@@ -24,7 +24,7 @@ public class JournalController {
         return "journal/index";
 
     }
-
+    
     @RequestMapping(value = "/bmNXB", method = RequestMethod.GET)
     public String getAll_NXB(Model m) {
         BmNXBModel model = new BmNXBModel();
@@ -37,7 +37,7 @@ public class JournalController {
         BmNXBModel model = new BmNXBModel();
         Bmnxb nxb = model.getNXB(id);
         model.Remove(nxb);
-        return "redirect:bmNXB.htm";
+        return "redirect:journal/bmNXB.htm";
     }
 
     @RequestMapping(value = "/edit_NXB", method = RequestMethod.GET)
@@ -52,14 +52,14 @@ public class JournalController {
     public String Update_NXB(@ModelAttribute(value = "NXB") Bmnxb nxb) {
         BmNXBModel model = new BmNXBModel();
         model.Edit(nxb);
-        return "redirect:bmNXB.htm";
+        return "redirect:journal/bmNXB.htm";
     }
 
     @RequestMapping(value = "/create_NXB", method = RequestMethod.POST)
     public String Create_NXB(@ModelAttribute(value = "NXB") Bmnxb nxb) {
         BmNXBModel model = new BmNXBModel();
         model.Create(nxb);
-        return "redirect:bmNXB.htm";
+        return "redirect:journal/bmNXB.htm";
     }
 
     @RequestMapping(value = "/redirectCreate_NXB", method = RequestMethod.GET)
@@ -94,14 +94,14 @@ public class JournalController {
     public String Update_SPL(@ModelAttribute(value = "SPL") Bmsophanloai spl) {
         BmSoPhanLoaiModel model = new BmSoPhanLoaiModel();
         model.Edit(spl);
-        return "redirect:bmSPL.htm";
+        return "redirect:journal/bmSPL.htm";
     }
 
     @RequestMapping(value = "/create_SPL", method = RequestMethod.POST)
     public String Create_SPL(@ModelAttribute(value = "SPL") Bmsophanloai spl) {
         BmSoPhanLoaiModel model = new BmSoPhanLoaiModel();
         model.Create(spl);
-        return "redirect:bmSPL.htm";
+        return "redirect:journal/bmSPL.htm";
     }
 
     @RequestMapping(value = "/redirectCreate_SPL", method = RequestMethod.GET)
@@ -121,7 +121,7 @@ public class JournalController {
         BmTacGiaModel model = new BmTacGiaModel();
         Bmtacgia tg = model.getTG(id);
         model.Remove(tg);
-        return "redirect:bmTacGia.htm";
+        return "redirect:journal/bmTacGia.htm";
     }
 
     @RequestMapping(value = "/edit_TG", method = RequestMethod.GET)
@@ -136,14 +136,14 @@ public class JournalController {
     public String Update_TG(@ModelAttribute(value = "TG") Bmtacgia tg) {
         BmTacGiaModel model = new BmTacGiaModel();
         model.Edit(tg);
-        return "redirect:bmTacGia.htm";
+        return "redirect:journal/bmTacGia.htm";
     }
 
     @RequestMapping(value = "/create_TG", method = RequestMethod.POST)
     public String Create_TG(@ModelAttribute(value = "TG") Bmtacgia tg) {
         BmTacGiaModel model = new BmTacGiaModel();
         model.Create(tg);
-        return "redirect:bmTacGia.htm";
+        return "redirect:journal/bmTacGia.htm";
     }
 
     @RequestMapping(value = "/redirectCreate_TG", method = RequestMethod.GET)

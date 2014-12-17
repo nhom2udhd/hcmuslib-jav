@@ -20,8 +20,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-@WebFilter(filterName = "Authentication", urlPatterns = {"/journal/*", "/supplement/*", "/catalog/*"})
 
+@WebFilter(filterName = "Authentication", urlPatterns = {"/journal/*", "/supplement/*", "/catalog/*"})
 public class Authentication implements Filter {
 
     private static final boolean debug = true;
@@ -30,7 +30,6 @@ public class Authentication implements Filter {
     // this value is null, this filter instance is not currently
     // configured. 
     private FilterConfig filterConfig = null;
-    private String contextPath;
 
     public Authentication() {
     }
@@ -104,20 +103,25 @@ public class Authentication implements Filter {
         HttpServletRequest rq = (HttpServletRequest) request;
         HttpServletResponse rp = (HttpServletResponse) response;
         HttpSession session = rq.getSession();
-        UserPassword currentUser=(UserPassword)session.getAttribute("user");
-        if (session.getAttribute("user") == null) {
-            rp.sendRedirect(rq.getContextPath() + "/account/login.htm");
-        } else {
-            String URI = rq.getRequestURI();
-            ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
-            AuthorizationManager authMgr = (AuthorizationManager) ctx.getBean("AuthorizationManager");
-            boolean authorized = authMgr.isUserAuthorized(currentUser, URI);
-            if (authorized) {
-                chain.doFilter(request, response);
-            } else {
-                rp.sendRedirect("/");
-            }
-        }
+        chain.doFilter(request, response);
+        /*Doan code duoi nay de dieu khien viec truy cap vao controller theo role, 
+        * sau khi code chuc nang hoan chinh thi mo lai doan code nay
+        * doan code nay khong duoc xoa!!!
+        */
+//        UserPassword currentUser=(UserPassword)session.getAttribute("user");
+//        if (session.getAttribute("user") == null) {
+//            rp.sendRedirect(rq.getContextPath() + "/account/login.htm");
+//        } else {
+//            String URI = rq.getRequestURI();
+//            ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
+//            AuthorizationManager authMgr = (AuthorizationManager) ctx.getBean("AuthorizationManager");
+//            boolean authorized = authMgr.isUserAuthorized(currentUser, URI);
+//            if (authorized) {
+//                chain.doFilter(request, response);
+//            } else {
+//                rp.sendRedirect("index.htm");
+//            }
+//        }
     }
 
     /**
@@ -146,7 +150,6 @@ public class Authentication implements Filter {
      * Init method for this filter
      */
     public void init(FilterConfig filterConfig) {
-        contextPath = filterConfig.getServletContext().getContextPath();
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
             if (debug) {

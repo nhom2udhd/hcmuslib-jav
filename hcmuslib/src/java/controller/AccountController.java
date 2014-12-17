@@ -47,8 +47,8 @@ public class AccountController {
         if (rs){
             String role=p.getWebpagesRoles().getRoleName();
             session.setAttribute("user", p);
-//            session.setAttribute("username", p.getUserName());
-//            session.setAttribute("role", role);
+            session.setAttribute("username", p.getUserName());
+            session.setAttribute("role", role);
             if(role.equals("CatalogManager")){
                 return "redirect:/catalog/index.htm";
             }

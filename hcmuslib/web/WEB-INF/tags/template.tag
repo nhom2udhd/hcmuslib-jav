@@ -47,8 +47,8 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.htm">Trang chủ</a></li>
-                        <li><a href="home/about.htm">Giới thiệu</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/index.htm">Trang chủ</a></li>
+                        <li><a href="${pageContext.request.contextPath}/home/about.htm">Giới thiệu</a></li>
                         <li><a href="services.htm">Thư viện</a></li>
                         <li class="dropdown active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Biên mục <i class="icon-angle-down"></i></a>
@@ -64,7 +64,7 @@
                                 <li><a href="terms.html">Terms of Use</a></li>
                             </ul>
                         </li>
-                        <li><a href="home/contact.htm">Liên hệ - Góp ý</a></li>
+                        <li><a href="${pageContext.request.contextPath}/home/contact.htm">Liên hệ - Góp ý</a></li>
                     </ul>
                 </div>
             </div>
