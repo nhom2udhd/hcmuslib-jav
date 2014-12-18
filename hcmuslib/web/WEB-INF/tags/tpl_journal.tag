@@ -24,7 +24,7 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/animate.css" rel="stylesheet">
         <link type="text/css" href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
         <link type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css" rel="stylesheet">
-       
+
 
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/ico/favicon.ico">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${pageContext.request.contextPath}/images/ico/apple-touch-icon-144-precomposed.png">
@@ -47,9 +47,28 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="${pageContext.request.contextPath}/index.htm">Trang chủ</a></li>
-                        <li><a href="${pageContext.request.contextPath}/home/about.htm">Giới thiệu</a></li>
-                        <li><a href="services.htm">Thư viện</a></li>
+                        <li class="active"><a href="index.htm">Trang chủ</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Biên Mục<i class="icon-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="bmAnPham.htm">Ấn phẩm</a></li>
+                                <li><a href="bmKyTapChi.htm">Kỳ tạp chí</a></li>
+                                <li><a href="bmChuongTapChi.htm">Chương tạp chí</a></li>
+                                <li><a href="bmTacGia.htm">Tác giả</a></li>
+                                <li><a href="bmNXB.htm">Nhà xuất bản</a></li>
+                                <li><a href="bmSPL.htm">Số phân loại</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Theo dõi ấn phẩm</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài khoản <i class="icon-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Xem thông tin</a></li>
+                                <li class="divider"></li>
+                                <li><a href="${pageContext.request.contextPath}/account/logout.htm">Đăng Xuất</a></li>
+
+                            </ul>
+                        </li>
                         <li><a href="${pageContext.request.contextPath}/home/contact.htm">Liên hệ - Góp ý</a></li>
                     </ul>
                 </div>

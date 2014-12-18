@@ -50,6 +50,20 @@
                         <li class="active"><a href="${pageContext.request.contextPath}/index.htm">Trang chủ</a></li>
                         <li><a href="${pageContext.request.contextPath}/home/about.htm">Giới thiệu</a></li>
                         <li><a href="services.htm">Thư viện</a></li>
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Biên mục <i class="icon-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="journal/bmAnPham.htm">Ấn phẩm</a></li>
+                                <li><a href="journal/bmKyTapChi.htm">Kỳ tạp chí</a></li>
+                                <li><a href="journal/bmChuongTapChi.htm">Chương tạp chí</a></li>
+                                <li><a href="journal/bmTacGia.htm">Tác giả</a></li>
+                                <li><a href="journal/bmNXB.htm">Nhà xuất bản</a></li>
+                                <li><a href="journal/bmSPL.htm">Số phân loại</a></li>
+                                <li class="divider"></li>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="terms.html">Terms of Use</a></li>
+                            </ul>
+                        </li>
                         <li><a href="${pageContext.request.contextPath}/home/contact.htm">Liên hệ - Góp ý</a></li>
                     </ul>
                 </div>
