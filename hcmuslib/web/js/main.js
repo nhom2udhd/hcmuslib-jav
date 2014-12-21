@@ -16,7 +16,7 @@ jQuery(function($) {
 			$(this).css('margin-top',  ($('#main-slider').height() - $(this).height())/2);
 		});
 	});
-
+        
 	//portfolio
 	$(window).load(function(){
 		$portfolio_selectors = $('.portfolio-filter >li>a');
@@ -53,7 +53,7 @@ jQuery(function($) {
 			scrollTop: $("body").offset().top
 		}, 500);
 	});	
-
+      
 	//Pretty Photo
 	$("a[rel^='prettyPhoto']").prettyPhoto({
 		social_tools: false

@@ -20,6 +20,12 @@ import org.springframework.validation.FieldError;
 @Controller
 @RequestMapping(value = "/catalog")
 public class CatalogController {
+
+    @RequestMapping(value = "/index")
+    public String index(){
+        return "catalog/index";
+
+    };
     
     @RequestMapping(value = "/bmtacgia")
     public String bmtacgia()

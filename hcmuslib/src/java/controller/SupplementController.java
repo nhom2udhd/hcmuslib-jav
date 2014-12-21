@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/supplement")
 public class SupplementController {
     
+
     @RequestMapping(value = "/order/index")
     public String index(Model m) {
         OrderModel model = new OrderModel();
@@ -77,6 +78,7 @@ public class SupplementController {
         m.addAttribute("id",id);
         return "supplement/detail";
     }
+
 }
 
 

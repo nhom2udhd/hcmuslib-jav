@@ -7,6 +7,7 @@
     <property name="hibernate.connection.username">lib</property>
     <property name="hibernate.connection.password">123456789</property>
     <property name="hibernate.current_session_context_class">thread</property>
+
     <mapping class="entity.Dktaphuan"/>
     <mapping class="entity.Sach"/>
     <mapping class="entity.Luuhanhsach"/>

@@ -1,51 +1,11 @@
-<%-- 
-    Document   : edit_NXB
-    Created on : Dec 13, 2014, 12:08:43 PM
-    Author     : Phu
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="me" uri="/WEB-INF/tlds/tags.tld"%>
+<%@taglib prefix="me" uri="/WEB-INF/tlds/tags_journal.tld"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
-<me:template title="Chỉnh sửa Nhà xuất bản">
+<me:tpl_journal title="Chỉnh sửa Nhà xuất bản">
     <jsp:attribute name="content">
-        <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.htm"><img src="${pageContext.request.contextPath}/images/logo.png" alt="logo"></a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.htm">Trang chủ</a></li>
-                        <li><a href="/home/about.htm">Giới thiệu</a></li>
-                        <li><a href="services.html">Thư viện</a></li>
-                        <li class="dropdown active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Biên mục <i class="icon-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="bmAnPham.htm">Ấn phẩm</a></li>
-                                <li><a href="bmKyTapChi.htm">Kỳ tạp chí</a></li>
-                                <li><a href="bmChuongTapChi.htm">Chương tạp chí</a></li>
-                                <li><a href="bmTacGia.htm">Tác giả</a></li>
-                                <li class="active"><a href="bmNXB.htm">Nhà xuất bản</a></li>
-                                <li><a href="bmSPL.htm">Số phân loại</a></li>
-                                <li class="divider"></li>
-                                <li><a href="privacy.html">Privacy Policy</a></li>
-                                <li><a href="terms.html">Terms of Use</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/home/contact.htm">Liên hệ - Góp ý</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
-        
         <section id="title" class="emerald">
             <div class="container">
                 <div class="row">
@@ -102,4 +62,4 @@
         </section>
         
     </jsp:attribute>
-</me:template>
+</me:tpl_journal>
