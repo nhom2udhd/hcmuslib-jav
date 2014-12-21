@@ -32,6 +32,22 @@ $(document).ready(function(){
 	}
   })
   
+  $("#additem").on("click",function(){
+    var number = parseInt($('#item-container').attr('data-number-item'));
+    $.ajax({
+        url: "getitem.htm",
+        type: "GET",
+        data: {
+            'number' : number
+        },
+        success: function(data){
+            $('#item-container').append(data);
+
+            $('#item-container').attr('data-number-item',number+1);
+            $('#number-items').val(number+1);
+        }
+    });
+  })
 /*   $("#login-submit").on("click",function(e){
 	e.preventDefault();
 	$("#error-login-message").show();
