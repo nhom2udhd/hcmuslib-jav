@@ -1,9 +1,3 @@
-<%-- 
-    Document   : template
-    Created on : Nov 27, 2014, 8:41:10 AM
-    Author     : 11122_000
---%>
-
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
 
 <%-- The list of normal or fragment attributes can be specified here: --%>
@@ -30,6 +24,7 @@
         <link type="text/css" href="${pageContext.request.contextPath}/css/animate.css" rel="stylesheet">
         <link type="text/css" href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet">
         <link type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css" rel="stylesheet">
+       
 
         <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/ico/favicon.ico">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${pageContext.request.contextPath}/images/ico/apple-touch-icon-144-precomposed.png">
@@ -52,10 +47,10 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.htm">Trang chủ</a></li>
-                        <li><a href="home/about.htm">Giới thiệu</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/index.htm">Trang chủ</a></li>
+                        <li><a href="${pageContext.request.contextPath}/home/about.htm">Giới thiệu</a></li>
                         <li><a href="services.htm">Thư viện</a></li>
-                        <li><a href="home/contact.htm">Liên hệ - Góp ý</a></li>
+                        <li><a href="${pageContext.request.contextPath}/home/contact.htm">Liên hệ - Góp ý</a></li>
                     </ul>
                 </div>
             </div>

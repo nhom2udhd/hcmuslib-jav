@@ -72,7 +72,7 @@
                     <div class="col-md-4 col-sm-6">
 
 
-                        <div class="gly-link"><a href="/account/login.htm"><h3><span class="glyphicon glyphicon-user gly-bigger"></span> Đăng nhập</h3></a></div>
+                        <div class="gly-link"><a href="account/login.htm"><h3><span class="glyphicon glyphicon-user gly-bigger"></span> Đăng nhập</h3></a></div>
                         <p></p>
 
 

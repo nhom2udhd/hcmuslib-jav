@@ -1,11 +1,11 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
-
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,9 +24,9 @@ public class CtDonhang  implements java.io.Serializable {
 
      private int id;
      private Donhang donhang;
-     private Serializable tenSanPham;
+     private String tenSanPham;
      private Integer soLuong;
-     private Serializable ghiChu;
+     private String ghiChu;
 
     public CtDonhang() {
     }
@@ -36,7 +36,7 @@ public class CtDonhang  implements java.io.Serializable {
         this.id = id;
         this.donhang = donhang;
     }
-    public CtDonhang(int id, Donhang donhang, Serializable tenSanPham, Integer soLuong, Serializable ghiChu) {
+    public CtDonhang(int id, Donhang donhang, String tenSanPham, Integer soLuong, String ghiChu) {
        this.id = id;
        this.donhang = donhang;
        this.tenSanPham = tenSanPham;
@@ -45,8 +45,7 @@ public class CtDonhang  implements java.io.Serializable {
     }
    
      @Id 
-
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID", unique=true, nullable=false)
     public int getId() {
         return this.id;
@@ -68,11 +67,11 @@ public class CtDonhang  implements java.io.Serializable {
 
     
     @Column(name="TEN_SAN_PHAM")
-    public Serializable getTenSanPham() {
+    public String getTenSanPham() {
         return this.tenSanPham;
     }
     
-    public void setTenSanPham(Serializable tenSanPham) {
+    public void setTenSanPham(String tenSanPham) {
         this.tenSanPham = tenSanPham;
     }
 
@@ -88,11 +87,11 @@ public class CtDonhang  implements java.io.Serializable {
 
     
     @Column(name="GHI_CHU")
-    public Serializable getGhiChu() {
+    public String getGhiChu() {
         return this.ghiChu;
     }
     
-    public void setGhiChu(Serializable ghiChu) {
+    public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
 

@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
+
 
 
 import java.io.Serializable;
@@ -28,9 +28,9 @@ public class Donhang  implements java.io.Serializable {
 
      private String idDonHang;
      private Date ngayLap;
-     private Serializable tinhTrang;
-     private Serializable diaChiGoi;
-     private Serializable hinhThucThanhToan;
+     private String tinhTrang;
+     private String diaChiGoi;
+     private String hinhThucThanhToan;
      private String donViTienTe;
      private Date ngayGiaoHang;
      private Date ngayThanhToan;
@@ -43,7 +43,7 @@ public class Donhang  implements java.io.Serializable {
     public Donhang(String idDonHang) {
         this.idDonHang = idDonHang;
     }
-    public Donhang(String idDonHang, Date ngayLap, Serializable tinhTrang, Serializable diaChiGoi, Serializable hinhThucThanhToan, String donViTienTe, Date ngayGiaoHang, Date ngayThanhToan, Set<CtDonhang> ctDonhangs) {
+    public Donhang(String idDonHang, Date ngayLap, String tinhTrang, String diaChiGoi, String hinhThucThanhToan, String donViTienTe, Date ngayGiaoHang, Date ngayThanhToan, Set<CtDonhang> ctDonhangs) {
        this.idDonHang = idDonHang;
        this.ngayLap = ngayLap;
        this.tinhTrang = tinhTrang;
@@ -79,31 +79,31 @@ public class Donhang  implements java.io.Serializable {
 
     
     @Column(name="TINH_TRANG")
-    public Serializable getTinhTrang() {
+    public String getTinhTrang() {
         return this.tinhTrang;
     }
     
-    public void setTinhTrang(Serializable tinhTrang) {
+    public void setTinhTrang(String tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
 
     
     @Column(name="DIA_CHI_GOI")
-    public Serializable getDiaChiGoi() {
+    public String getDiaChiGoi() {
         return this.diaChiGoi;
     }
     
-    public void setDiaChiGoi(Serializable diaChiGoi) {
+    public void setDiaChiGoi(String diaChiGoi) {
         this.diaChiGoi = diaChiGoi;
     }
 
     
     @Column(name="HINH_THUC_THANH_TOAN")
-    public Serializable getHinhThucThanhToan() {
+    public String getHinhThucThanhToan() {
         return this.hinhThucThanhToan;
     }
     
-    public void setHinhThucThanhToan(Serializable hinhThucThanhToan) {
+    public void setHinhThucThanhToan(String hinhThucThanhToan) {
         this.hinhThucThanhToan = hinhThucThanhToan;
     }
 

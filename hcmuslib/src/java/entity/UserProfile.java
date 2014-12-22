@@ -1,17 +1,10 @@
 package entity;
-// Generated Nov 24, 2014 9:54:24 PM by Hibernate Tools 3.6.0
 
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -29,20 +22,13 @@ public class UserProfile  implements java.io.Serializable {
 
      private int userId;
      private Serializable userName;
-     private Set<WebpagesRoles> webpagesRoleses = new HashSet<WebpagesRoles>(0);
 
     public UserProfile() {
     }
 
-	
     public UserProfile(int userId, Serializable userName) {
-        this.userId = userId;
-        this.userName = userName;
-    }
-    public UserProfile(int userId, Serializable userName, Set<WebpagesRoles> webpagesRoleses) {
        this.userId = userId;
        this.userName = userName;
-       this.webpagesRoleses = webpagesRoleses;
     }
    
      @Id 
@@ -65,18 +51,6 @@ public class UserProfile  implements java.io.Serializable {
     
     public void setUserName(Serializable userName) {
         this.userName = userName;
-    }
-
-@ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="webpages_UsersInRoles", schema="dbo", catalog="QLTHUVIEN", joinColumns = { 
-        @JoinColumn(name="UserId", nullable=false, updatable=false) }, inverseJoinColumns = { 
-        @JoinColumn(name="RoleId", nullable=false, updatable=false) })
-    public Set<WebpagesRoles> getWebpagesRoleses() {
-        return this.webpagesRoleses;
-    }
-    
-    public void setWebpagesRoleses(Set<WebpagesRoles> webpagesRoleses) {
-        this.webpagesRoleses = webpagesRoleses;
     }
 
 

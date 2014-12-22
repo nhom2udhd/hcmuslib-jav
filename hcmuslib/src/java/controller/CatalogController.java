@@ -29,6 +29,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = "/catalog")
 public class CatalogController {
+
+    @RequestMapping(value = "/index")
+    public String index(){
+        return "catalog/index";
+
+    };
     
     @RequestMapping(value = "/bienmuctacgia")
     public String bienmuctacgia(@ModelAttribute("Bmtacgia") Bmtacgia p,ModelMap m)
