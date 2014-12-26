@@ -25,6 +25,7 @@
         </section><!--/#title-->    
         <section class="container">
                     <h3>Danh sách hàng hóa của đơn hàng ${id}</h3>
+                    
                     <table class="table table-bordered">
                         <tr>
                             <th>Tên sản phẩm</th>
@@ -37,7 +38,9 @@
                         </tr>
                     </c:forEach>
                     </table>
-               
+                    <a href="index.htm"><button type="button" class="btn btn-default btn-md">
+                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Trở về
+                    </button></a>
         </section><!--/#terms-->
     </jsp:attribute>
 </me:template>

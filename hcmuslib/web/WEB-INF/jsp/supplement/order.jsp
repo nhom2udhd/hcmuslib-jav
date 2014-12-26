@@ -13,14 +13,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1>Blank page</h1>
+                        <h1>Lập đơn hàng</h1>
                         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
                     </div>
                     <div class="col-sm-6">
                         <ul class="breadcrumb pull-right">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="#">Pages</a></li>
-                            <li class="active">Blank page</li>
+                            <li class="active">Lập đơn hàng</li>
                         </ul>
                     </div>
                 </div>
@@ -58,6 +58,7 @@
                               <div class="col-sm-offset-1" id="order-list" >
                                       <h4>Danh sách hàng hóa</h4>
                               </div>
+                                <p id="order-item-message" class="error-message" style="display: none">Nhấn + để thêm hàng hóa<p>
                         </div>
                         <div id="item-container" data-number-item="0">
 <!--                        <div class="form-group" style="display:none" class="item">
@@ -84,9 +85,14 @@
                         </div>
                         
                         <input type="hidden" name="number-items" id="number-items">
-                        <button type="submit" class="btn btn-default">Tạo</button>
+                        <button type="submit" class="btn btn-success" id="order-submit-btn">Tạo</button>
+                         <a href="index.htm">
+                            <button type="button" class="btn btn-default btn-md">
+                                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Trở về
+                            </button>
+                        </a>
                     </form>
-
+                   
         </section><!--/#terms-->
     </jsp:attribute>
 </me:template>
