@@ -16,7 +16,7 @@ import entity.Bmtacgia;
 import java.util.List;
 import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
-import model.BmtacgiaModel;
+import model.BmTacGiaSachModel;
 import model.ValidationResponse;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
 import org.springframework.ui.Model;
@@ -40,7 +40,7 @@ public class CatalogController {
     public String bienmuctacgia(@ModelAttribute("Bmtacgia") Bmtacgia p,ModelMap m)
     {
         
-        BmtacgiaModel model = new BmtacgiaModel();  
+        BmTacGiaSachModel model = new BmTacGiaSachModel();  
         int pageSum = model.CountRow();
         if(pageSum%6==0)
             pageSum = pageSum/6+1;
@@ -61,73 +61,19 @@ public class CatalogController {
     public String tabletacgia(@ModelAttribute("Bmtacgia") Bmtacgia p, ModelMap m,
             @RequestParam("jtStartIndex") int jtStartIndex)
     {             
-        BmtacgiaModel model = new BmtacgiaModel();
+        BmTacGiaSachModel model = new BmTacGiaSachModel();
         if(jtStartIndex < 0)
             jtStartIndex = 0;
         m.addAttribute("lst",model.getAll(jtStartIndex,6));
         m.put("Bmtacgia", p);
         //m.put("jtStartIndex", jtStartIndex);
         return ("catalog/tabletacgia");
-    }
-    /*
-    @RequestMapping(value = "/validtacgia", method = RequestMethod.POST)
-    public String validtacgia(@ModelAttribute("Bmtacgia") @Valid Bmtacgia p,
-            BindingResult result, ModelMap m)
-    {       
-        
-        
-        if(result.hasErrors())
-        {
-            
-            m.put("Bmtacgia",p);
-            m.put("hoTen",p.getHoTen());
-            m.put("butDanh",p.getButDanh());
-            m.put("thongTinBoSung",p.getThongTinBoSung());
-            if(p.getTinhTrang().equals("Hoat Dong"))
-            {
-                m.put("option1","selected");  
-                m.put("option2"," "); 
-            }
-            if(p.getTinhTrang().equals("Ngung Hoat Dong"))
-            {
-                m.put("option2","selected");
-                m.put("option1"," ");
-            }
-            List<FieldError> lst = result.getFieldErrors();
-            for(FieldError fieldError : lst){
-                if(fieldError.getField().equals("hoTen"))
-                    m.put("hoTencheck", fieldError.getDefaultMessage());
-                if(fieldError.getField().equals("tinhTrang"))
-                    m.put("tinhTrang", fieldError.getDefaultMessage());
-                
-            }
-            return "catalog/bmtacgia";
-        }
-        else
-        {
-            BmtacgiaModel model = new BmtacgiaModel();
-            model.create(p);
-            m.put("Result", "Create Success");
-        }
-        return "catalog/success";
-    }
-    @RequestMapping(value="/validtacgia", method = RequestMethod.POST)
-    public ValidationResponse processForm (Model model, @Valid Bmtacgia p, BindingResult result ) {
-        ValidationResponse res = new ValidationResponse();
-        if(!result.hasErrors()){
-          res.setStatus("SUCCESS");
-        }
-        else{
-            List<FieldError> lst = result.getFieldErrors();
-            res.setErrorMessageList(lst);
-        }
-        return res;
-    }*/
+    } 
     
     @RequestMapping(value = "successtacgia", method = RequestMethod.POST)    
     public String successtacgia(@ModelAttribute("Bmtacgia") Bmtacgia p, ModelMap m)
     {       
-        BmtacgiaModel model = new BmtacgiaModel();
+        BmTacGiaSachModel model = new BmTacGiaSachModel();
         boolean create = false;
         while(!create)
         {
@@ -136,7 +82,7 @@ public class CatalogController {
             int randomInt;
             randomInt = rand.nextInt((99999999 - 10000000) + 1) + 10000000;
             p.setIdTacGia("TG" +  randomInt);
-            create = model.create(p);          
+            create = model.Create(p);        
         }
         m.put("Result","Tác Giả Đã Được Thêm Vào !");
         m.addAttribute("lst",model.getAll(0,6));
@@ -146,8 +92,8 @@ public class CatalogController {
     @RequestMapping(value = "removetacgia", method = RequestMethod.POST)    
     public String removetacgia(@ModelAttribute("Bmtacgia") Bmtacgia p, ModelMap m)
     {       
-        BmtacgiaModel model = new BmtacgiaModel();
-        if(model.remove(p))
+        BmTacGiaSachModel model = new BmTacGiaSachModel();
+        if(model.Remove(p))
             m.put("Result","Tác Giả Đã Xóa !");
         else
             m.put("Result","Tác Giả Này Tạm Thời Không Xóa Được Do Vi Phạm Ràng Buộc, "
@@ -161,8 +107,8 @@ public class CatalogController {
     @RequestMapping(value = "edittacgia", method = RequestMethod.POST)    
     public String edittacgia(@ModelAttribute("Bmtacgia") Bmtacgia p, ModelMap m)
     {       
-        BmtacgiaModel model = new BmtacgiaModel();
-        if(model.edit(p))
+        BmTacGiaSachModel model = new BmTacGiaSachModel();
+        if(model.Edit(p))
             m.put("Result","Tác Giả Đã Được chỉnh sửa !");
         else
             m.put("Result","Lỗi, Xin Thử Lại !");

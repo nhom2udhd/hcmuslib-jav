@@ -7,14 +7,32 @@ package model;
 import entity.*;
 import java.util.*;
 import org.hibernate.*;
-public class BmTacGiaModel {
-    public List<Bmtacgia> getAll()
+public class BmTacGiaSachModel {
+    public int CountRow()
+    {
+            Session s = HibernateUtil.getSessionFactory().getCurrentSession();
+            List<Bmtacgia> lst = new ArrayList<Bmtacgia>();
+            try {
+                s.beginTransaction();
+                lst = s.createCriteria(Bmtacgia.class).list();
+                s.getTransaction().commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return lst.size();
+    }
+
+    public List<Bmtacgia> getAll(int jxIndexPage, int jxPage)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
         List<Bmtacgia> lst = new ArrayList<Bmtacgia>();
+        String query = "select * form BMTACGIA";
         try {
             s.beginTransaction();
-            lst = s.createCriteria(Bmtacgia.class).list();
+            Query q = s.createSQLQuery(query).addEntity(BmTacGiaSachModel.class);
+            q.setMaxResults(jxPage);
+            q.setFirstResult(jxIndexPage);
+            lst = q.list();
             s.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -22,7 +40,7 @@ public class BmTacGiaModel {
         return lst;
     }
     
-    public void Create(Bmtacgia e)
+    public boolean Create(Bmtacgia e)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
         try
@@ -30,15 +48,17 @@ public class BmTacGiaModel {
             s.beginTransaction();
             s.save(e);
             s.getTransaction().commit();
+            return true;
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
             s.getTransaction().rollback();
+            return false;
         }
     }
     
-    public void Remove(Bmtacgia e)
+    public boolean Remove(Bmtacgia e)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
         try
@@ -46,15 +66,17 @@ public class BmTacGiaModel {
             s.beginTransaction();
             s.delete(e);
             s.getTransaction().commit();
+            return true;
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
             s.getTransaction().rollback();
+            return false;
         }
     }
     
-    public void Edit(Bmtacgia e)
+    public boolean Edit(Bmtacgia e)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
         try
@@ -62,29 +84,14 @@ public class BmTacGiaModel {
             s.beginTransaction();
             s.update(e);
             s.getTransaction().commit();
+            return true;
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
             s.getTransaction().rollback();
+            return false;
         }
     }
-    
-    public Bmtacgia getTG(String id)
-    {
-        Session s = HibernateUtil.getSessionFactory().getCurrentSession();
-        Bmtacgia tg = new Bmtacgia();
-        try
-        {
-            s.beginTransaction();
-            tg = (Bmtacgia)s.get(Bmtacgia.class, id);
-            s.getTransaction().commit();
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-            s.getTransaction().rollback();
-        }
-        return tg;
-    }
+       
 }
