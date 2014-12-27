@@ -1,13 +1,13 @@
 <%-- 
-    Document   : bmTacGia
-    Created on : Dec 13, 2014, 4:50:52 PM
+    Document   : bmAnPham
+    Created on : Dec 27, 2014, 8:59:10 PM
     Author     : Phu
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="me" uri="/WEB-INF/tlds/tags.tld"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<me:template title="Biên mục Tác giả">
+<me:template title="Biên mục Ấn phẩm">
     <jsp:attribute name="content">
         <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
             <div class="container">
@@ -28,10 +28,10 @@
                         <li class="dropdown active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Biên mục <i class="icon-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="bmAnPham.htm">Ấn phẩm</a></li>
+                                <li class="active"><a href="bmAnPham.htm">Ấn phẩm</a></li>
                                 <li><a href="bmKyTapChi.htm">Kỳ tạp chí</a></li>
                                 <li><a href="bmChuongTapChi.htm">Chương tạp chí</a></li>
-                                <li class="active"><a href="bmTacGia.htm">Tác giả</a></li>
+                                <li><a href="bmTacGia.htm">Tác giả</a></li>
                                 <li><a href="bmNXB.htm">Nhà xuất bản</a></li>
                                 <li><a href="bmSPL.htm">Số phân loại</a></li>
                                 <li class="divider"></li>
@@ -49,29 +49,34 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1>Biên mục Tác giả</h1>
+                        <h1>Biên mục Ấn phẩm</h1>
                     </div>
                     <div class="col-sm-6">
                         <ul class="breadcrumb pull-right">
                             <li><a href="index.htm">Trang chủ</a></li>
                             <li><a href="#">Biên mục</a></li>
-                            <li class="active">Tác giả</li>
+                            <li class="active">Ấn phẩm</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section><!--/#title-->
 	
-        <section id="bien_muc_tac_gia" class="container">
+        <section id="bien_muc_an_pham" class="container">
             <div class="row">
 		<div class="table-responsive">
 			<table class="table table-bordered">
 				<tr>
                                     <th><center>ID</center></th>
-                                    <th><center>Họ tên</center></th>
-                                    <th><center>Bút danh</center></th>
-                                    <th><center>Thông tin bổ sung</center></th>
-                                    <th><center>Tình trạng</center></th>
+                                    <th><center>Tên ấn phẩm</center></th>
+                                    <th><center>cqChuquan</center></th>
+                                    <th><center>Địa chỉ tòa soạn</center></th>
+                                    <th><center>ĐKXB</center></th>
+                                    <th><center>Tác giả</center></th>
+                                    <th><center>Nhà xuất bản</center></th>
+                                    <th><center>Số phân loại</center></th>
+                                    <th><center>Chương</center></th>
+                                    <th><center>Kỳ</center></th>
                                     <th>
                                         <center>
                                             <a href="redirectCreate_TG.htm">
@@ -84,21 +89,19 @@
 				</tr>
                                 <c:forEach items="${lst}" var="bm">
                                     <tr>
-                                        <td>${bm.idTacGia}</td>
-                                        <td>${bm.hoTen}</td>
-                                        <td>${bm.butDanh}</td>
-                                        <td>${bm.thongTinBoSung}</td>
-                                        <c:choose>
-                                            <c:when test="${bm.tinhTrang == '1'}">
-                                                <td>Hoạt động</td>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <td>Ngưng hoạt động</td>
-                                            </c:otherwise>
-                                        </c:choose>
+                                        <td>${bm.idAnpham}</td>
+                                        <td>${bm.tenAnpham}</td>
+                                        <td>${bm.cqChuquan}</td>
+                                        <td>${bm.dcToasoan}</td>
+                                        <td>${bm.dkxb}</td>
+                                        <td>${bm.bmtacgia}</td>
+                                        <td>${bm.bmnxb}</td>
+                                        <td>${bm.bmsophanloai}</td>
+                                        <td>Các chương</td>
+                                        <td>Các kỳ</td>
                                         <td>
                                             <center>
-                                                <a href="edit_TG.htm?id=${bm.idTacGia}">
+                                                <a href="edit_TG.htm?id=${bm.idAnpham}">
                                                     <button type="button" class="btn btn-default">
                                                         <span class="glyphicon glyphicon-pencil"></span> Chỉnh sửa
                                                     </button>

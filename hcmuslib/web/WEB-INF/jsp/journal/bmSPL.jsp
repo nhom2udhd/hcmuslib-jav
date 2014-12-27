@@ -92,15 +92,6 @@
                                                 </a>
                                             </center>
                                         </td>
-                                        <td>
-                                            <center>
-                                                <a href="remove_SPL.htm?id=${bm.idSpl}" onclick="return confirm('Are you sure to remove?')">
-                                                    <button type="button" class="btn btn-default">
-                                                        <span class="glyphicon glyphicon-minus"></span> Xóa
-                                                    </button>
-                                                </a>
-                                            </center>
-                                        </td>
                                     </tr>
                                 </c:forEach>
 			</table>

@@ -87,4 +87,22 @@ public class BmTacGiaModel {
         }
         return tg;
     }
+    
+    public String createID_TG()
+    {
+        List<Bmtacgia> lst = this.getAll();
+        Random r = new Random();
+        int num = r.nextInt(99999999);
+        String id = String.format("TG%08d", num);
+        int i = 0;
+        Bmtacgia p = lst.get(0);
+        while (id.equals(p.getIdTacGia()))
+        {
+            num = r.nextInt(99999999);
+            id = String.format("TG%08d", num);
+            i++;
+            p = lst.get(i);
+        }
+        return id;
+    }
 }
