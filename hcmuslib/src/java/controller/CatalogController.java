@@ -42,13 +42,13 @@ public class CatalogController {
         
         BmTacGiaSachModel model = new BmTacGiaSachModel();  
         int pageSum = model.CountRow();
-        if(pageSum%6==0)
-            pageSum = pageSum/6+1;
-        else
-            pageSum = pageSum/6;
+        if(pageSum%5 == 0)
+            pageSum = pageSum/5-1;
+        else 
+            pageSum = pageSum/5;
         m.addAttribute("pageSum",pageSum);
         //m.put("Bmtacgia", p);
-        m.put("jtStartIndex", 0);
+        //m.put("jtStartIndex", 0);
         return "catalog/bienmuctacgia";
     }
     @RequestMapping(value = "/bmtacgia")
@@ -64,7 +64,7 @@ public class CatalogController {
         BmTacGiaSachModel model = new BmTacGiaSachModel();
         if(jtStartIndex < 0)
             jtStartIndex = 0;
-        m.addAttribute("lst",model.getAll(jtStartIndex,6));
+        m.addAttribute("lst",model.getAll(jtStartIndex,5));
         m.put("Bmtacgia", p);
         //m.put("jtStartIndex", jtStartIndex);
         return ("catalog/tabletacgia");
@@ -73,19 +73,18 @@ public class CatalogController {
     @RequestMapping(value = "successtacgia", method = RequestMethod.POST)    
     public String successtacgia(@ModelAttribute("Bmtacgia") Bmtacgia p, ModelMap m)
     {       
-        BmTacGiaSachModel model = new BmTacGiaSachModel();
-        boolean create = false;
-        while(!create)
-        {
-            //them id tac gia           
-            Random rand = new Random();
-            int randomInt;
-            randomInt = rand.nextInt((99999999 - 10000000) + 1) + 10000000;
-            p.setIdTacGia("TG" +  randomInt);
-            create = model.Create(p);        
-        }
+        BmTacGiaSachModel model = new BmTacGiaSachModel();       
+        p.setIdTacGia(model.createID());
+        model.Create(p);
+        
         m.put("Result","Tác Giả Đã Được Thêm Vào !");
-        m.addAttribute("lst",model.getAll(0,6));
+        //m.addAttribute("lst",model.getAll(0,6));
+        int pageSum = model.CountRow();
+        if(pageSum%5 == 0)
+            pageSum = pageSum/5-1;
+        else 
+            pageSum = pageSum/5;
+        m.addAttribute("pageSum",pageSum);
         return "catalog/bienmuctacgia";
     }
     
@@ -99,8 +98,13 @@ public class CatalogController {
             m.put("Result","Tác Giả Này Tạm Thời Không Xóa Được Do Vi Phạm Ràng Buộc, "
                     + "Hãy Kiểm Tra Lại Các Sách Liên Quan !");
         
-        m.addAttribute("lst",model.getAll(0,6));
-        
+        //m.addAttribute("lst",model.getAll(0,6));
+        int pageSum = model.CountRow();
+        if(pageSum%5 == 0)
+            pageSum = pageSum/5-1;
+        else 
+            pageSum = pageSum/5;
+        m.addAttribute("pageSum",pageSum);
         return "catalog/bienmuctacgia";
     }
     
@@ -112,10 +116,15 @@ public class CatalogController {
             m.put("Result","Tác Giả Đã Được chỉnh sửa !");
         else
             m.put("Result","Lỗi, Xin Thử Lại !");
+        int pageSum = model.CountRow();
+        if(pageSum%5 == 0)
+            pageSum = pageSum/5-1;
+        else 
+            pageSum = pageSum/5;
+        m.addAttribute("pageSum",pageSum);
+        //m.addAttribute("lst",model.getAll(0,6));
         
-        m.addAttribute("lst",model.getAll(0,6));
-        
-        return "catalog/bienmuctacgia";
+        return  "catalog/bienmuctacgia";
     }
     
     @RequestMapping(value = "/bmnhandechinh")

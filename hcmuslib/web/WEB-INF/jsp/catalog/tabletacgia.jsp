@@ -17,41 +17,40 @@
 
     </tr>
     <c:forEach items="${lst}" var="tg">
-        <f:form 
-                action="removetacgia.htm"
-                method="POST"
-                modelAttribute="Bmtacgia">
-        <tr>
-        <f:hidden path="idTacGia" value="${tg.idTacGia}"></f:hidden>
+        
+            <tr>
+                
 
-        <td style="display: none">${tg.idTacGia}</td>
+                <td style="display: none">${tg.idTacGia}</td>
 
-        <td style="width: 20%;">${tg.hoTen}
+                <td style="width: 20%;">${tg.hoTen}
 
-        </td>
+                </td>
 
-        <td style="width: 20%;">${tg.butDanh}</td>
-        <td style="width: 30%;"><c:if test = "${tg.tinhTrang == 1}">
-                <c:out value="Hoạt Động"></c:out>
-            </c:if>
-            <c:if test = "${tg.tinhTrang == 0}">
-                <c:out value="Ngưng Hoạt Động"></c:out>
-            </c:if>
-        </td>
-        <td style="width: 10%">
-            <button type="button" onclick="showEditDiv('${tg.idTacGia}','${tg.hoTen}','${tg.butDanh}','${tg.tinhTrang}')">
-                <img src="${pageContext.request.contextPath}/images/edit.png" 
-                     alt="" width="20px" height="20px" title="Edit Tác Giả"/>
+                <td style="width: 20%;">${tg.butDanh}</td>
+                <td style="width: 30%;"><c:if test = "${tg.tinhTrang == 1}">
+                        <c:out value="Hoạt Động"></c:out>
+                    </c:if>
+                    <c:if test = "${tg.tinhTrang == 0}">
+                        <c:out value="Ngưng Hoạt Động"></c:out>
+                    </c:if>
+                </td>
+                <td style="width: 10%">
+                    <button type="button" onclick="showEditDiv('${tg.idTacGia}','${tg.hoTen}','${tg.butDanh}','${tg.tinhTrang}')">
+                        <img src="${pageContext.request.contextPath}/images/edit.png" 
+                             alt="" width="15px" height="15px" title="Edit Tác Giả"/>
 
-            </button>
-            <button class="confirm" type="submit" onclick="return confirm('Bạn Có Thực Sự Muốn Xóa TG này không ?')">
-                <img src="${pageContext.request.contextPath}/images/delete.png" 
-                     alt="" width="20px" height="20px" title="Xóa Tác Giả"/>
-            </button>
-        </td> 
-
-
-    </tr>
-    </f:form>
+                    </button>
+                    <br>
+                    <f:form action="removetacgia.htm" method="POST" modelAttribute="Bmtacgia">
+                        <f:hidden path="idTacGia" value="${tg.idTacGia}"></f:hidden>
+                        <button type="submit" onclick="return confirm('Bạn Có Thực Sự Muốn Xóa TG này không ?')" style="">
+                        <img src="${pageContext.request.contextPath}/images/delete.png" 
+                             alt="" width="15px" height="15px" title="Xóa Tác Giả"/>
+                        </button>
+                    </f:form>
+                </td> 
+            </tr>
+        
     </c:forEach>                                                                  
 </table>

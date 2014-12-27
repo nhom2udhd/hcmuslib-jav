@@ -58,20 +58,33 @@
         $("#editDiv").hide();
     };
     
-   
+    function Edit(){
+        if ($("#hotenedit").val().length==0){    
+            $('#hoteneditcheck').html('Ho Ten Is Not Empty'); 
+        }
+        else{       
+            $('#editForm').submit();
+        }
+    };
         
-    
-    
-    $(document).ready(function (){
+    function Load(){       
         $('#ajaxTable').empty().html('<img src="<%=request.getContextPath()%>/images/ajax-loader.gif" />');
         
         $("#ajaxTable").load('tabletacgia.htm?jtStartIndex=0');
+    };
+    
+    $(document).ready(function (){
+        
+        
+        Load();
+        
+        
         
         $("#prevBtn").click(function(){
-        
+            $("#nextBtn").removeAttr('disabled');
             var temp = parseInt($("#pageCur").val())-1;
-            if(temp < 0)
-                temp = 0;
+            if(temp == 0)
+                 $("#prevBtn").attr('disabled','disabled');
             if(temp >= 0)
             {
                 $('#ajaxTable').empty().html('<img src="<%=request.getContextPath()%>/images/ajax-loader.gif" />');
@@ -82,10 +95,10 @@
         });
         
         $("#nextBtn").click(function(){           
-            
+            $("#prevBtn").removeAttr('disabled');
             var temp = parseInt($("#pageCur").val())+1;
             if(temp > ${pageSum})
-                temp = ${pageSum}
+                $("#nextBtn").attr('disabled','disabled');
             if(temp <= ${pageSum})
             {
                 $('#ajaxTable').empty().html('<img src="<%=request.getContextPath()%>/images/ajax-loader.gif" />'); 
@@ -164,6 +177,7 @@
                             <button class="btn btn-primary btn-lg" id="hideBtn" style="display: none">Đóng Tạo Mới</button>
                             <br>
                             <br>
+                            <div id="createForm"></div><br>
                             <div id="ajaxTable">
                             
                             </div>
@@ -185,7 +199,7 @@
                     
                 </div><!--/.col-sm-8-->
                 <div class="col-sm-5">
-                    <div id="createForm"></div><br>
+                    
                     <div id="editDiv" style="display: none">
                     <button class="btn btn-primary btn-lg" id="createBtn" onclick="closeEditDiv()">Đóng Thay Đổi</button>
                     <f:form id="editForm"
@@ -195,7 +209,7 @@
                            <div class="form-group">
                                <f:hidden path="idTacGia" id="idedit"></f:hidden>
                                Họ Tên<span style="color:red">*</span> :<f:input type="text" path="hoTen" id="hotenedit" class="form-control" />
-                               <span style="color:red" id="hotencheck"></span>
+                               <span style="color:red" id="hoteneditcheck"></span>
                            </div>
                            <div class="form-group">
                                Bút Danh : <f:input type="text" id="butdanhedit" class="form-control" path="butDanh" />
@@ -208,7 +222,7 @@
                                 </f:select>
                            </div>
                            <div class="form-group">
-                               <input type="submit" class="btn btn-primary btn-lg" id="editBtn" value="Lưu Thay Đổi">
+                               <input type="button" onclick="Edit()" class="btn btn-primary btn-lg" id="editBtn" value="Lưu Thay Đổi">
                            </div>
                        </f:form>
                 </div>

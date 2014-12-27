@@ -20,6 +20,6 @@
     p:username="${jdbc.username}"
     p:password="${jdbc.password}" /-->
 
-    <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
-    <bean id="AuthorizationManager" class="Filter.AuthorizationManagerDefaultImpl"/>
+    <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) 
+    <bean id="AuthorizationManager" class="Filter.AuthorizationManagerDefaultImpl"/>-->
 </beans>
