@@ -87,7 +87,7 @@ public class BmTacGiaModel {
         }
         return tg;
     }
-    
+
     public String createID_TG()
     {
         List<Bmtacgia> lst = this.getAll();

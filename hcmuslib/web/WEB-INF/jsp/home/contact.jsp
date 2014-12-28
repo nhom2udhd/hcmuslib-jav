@@ -52,6 +52,7 @@
                     <h4>Vui lòng điền vào mẫu tin</h4>
                     <div class="status alert alert-success">
                         ${Result}
+                        ${role}
                     </div>
                     <form action="/Home/SendMail" method="post" class="form-horizontal" role="form">
                         <div class="row">

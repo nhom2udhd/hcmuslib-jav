@@ -1,5 +1,5 @@
 package entity;
-// Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
+
 
 
 import java.io.Serializable;
@@ -26,10 +26,12 @@ public class Bmtacgia  implements java.io.Serializable {
 
 
      private String idTacGia;
+
      private String hoTen;
      private String butDanh;
      private String thongTinBoSung;
      private String tinhTrang;
+
      private Set<Anpham> anphams = new HashSet<Anpham>(0);
      private Set<Sach> saches = new HashSet<Sach>(0);
 
@@ -40,7 +42,9 @@ public class Bmtacgia  implements java.io.Serializable {
     public Bmtacgia(String idTacGia) {
         this.idTacGia = idTacGia;
     }
+
     public Bmtacgia(String idTacGia, String hoTen, String butDanh, String thongTinBoSung, String tinhTrang, Set<Anpham> anphams, Set<Sach> saches) {
+
        this.idTacGia = idTacGia;
        this.hoTen = hoTen;
        this.butDanh = butDanh;

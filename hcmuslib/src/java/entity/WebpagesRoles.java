@@ -1,5 +1,4 @@
 package entity;
-// Generated Dec 12, 2014 5:30:45 PM by Hibernate Tools 4.3.1
 
 
 import java.io.Serializable;
@@ -29,7 +28,7 @@ public class WebpagesRoles  implements java.io.Serializable {
 
 
      private int roleId;
-     private Serializable roleName;
+     private String roleName;
      private Set<UserPassword> userPasswords = new HashSet<UserPassword>(0);
      private Set<UserPassword> userPasswords_1 = new HashSet<UserPassword>(0);
 
@@ -37,11 +36,13 @@ public class WebpagesRoles  implements java.io.Serializable {
     }
 
 	
-    public WebpagesRoles(int roleId, Serializable roleName) {
+    public WebpagesRoles(int roleId, String roleName) {
         this.roleId = roleId;
         this.roleName = roleName;
     }
-    public WebpagesRoles(int roleId, Serializable roleName, Set<UserPassword> userPasswords, Set<UserPassword> userPasswords_1) {
+
+    public WebpagesRoles(int roleId, String roleName, Set<UserPassword> userPasswords, Set<UserPassword> userPasswords_1) {
+
        this.roleId = roleId;
        this.roleName = roleName;
        this.userPasswords = userPasswords;
@@ -62,11 +63,11 @@ public class WebpagesRoles  implements java.io.Serializable {
 
     
     @Column(name="RoleName", unique=true, nullable=false)
-    public Serializable getRoleName() {
+    public String getRoleName() {
         return this.roleName;
     }
     
-    public void setRoleName(Serializable roleName) {
+    public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
 
