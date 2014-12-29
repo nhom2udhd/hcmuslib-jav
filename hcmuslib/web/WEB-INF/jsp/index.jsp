@@ -1,5 +1,62 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="me" uri="/WEB-INF/tlds/tags.tld" %>
+<%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+    function doAjax(key) {
+        // get the form values
+        $("#searchwarning").empty();
+        $('#contentbook').empty().html('<img src="<%=request.getContextPath()%>/images/ajax-loader.gif" />');
+        $.ajax({
+            //type: "GET",
+            url: "home/searchbooks.htm?keysearch="+key,
+            success: function(data){
+                // we have the response
+                
+                $('#contentbook').empty().html(data);
+                /* $('#info').refresh(); */            
+            },
+
+             error: function(e){
+                alert('Error: ' + e);
+                $('#contentbook').empty().html("Error, please try again !?");
+            } 
+            });
+    };
+    
+    function RunSearch()
+    {
+        if($("#searchtextbox").val().length == 0)
+        {
+            $("#searchwarning").html("Nhập tên sách hay tác giả bạn muốn tìm");
+        }              
+        else
+        {
+            
+            doAjax($("#searchtextbox").val());
+        }
+    }
+    
+    $(document).ready(function(){
+        $("#searchbutton").click(function(){
+            
+            //var key = $("#searchtextbox").val();
+            RunSearch();
+        });
+        $("#searchtextbox").keyup(function(event){
+            if(event.keyCode == 13){
+                //$('#contentbook').empty().html('<img src="<%=request.getContextPath()%>/images/ajax-loader.gif" />');
+                //var key = $("#searchtextbox").val();
+                RunSearch();
+            }
+        });
+    });
+    
+</script>
+
+
 <me:template title="Trang Chủ">
     <jsp:attribute name="content">
         <section id="main-slider" class="no-margin">
@@ -16,7 +73,7 @@
                                 <div class="col-sm-12">
                                     <div class="carousel-content centered">
                                         <h2 class="boxed animation animated-item-1">Thư viện trường ĐH Khoa học Tự Nhiên TPHCM</h2>
-                                        <p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                                        <p class="boxed animation animated-item-2"> </p>
                                         </br>
                                         <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
                                     </div>
@@ -30,7 +87,7 @@
                                 <div class="col-sm-12">
                                     <div class="carousel-content center centered">
                                         <h2 class="boxed animation animated-item-1">Thư viện trường ĐH Khoa học Tự Nhiên TPHCM</h2>
-                                        <p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                                        <p class="boxed animation animated-item-2"> </p>
                                         <br>
                                         <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
                                     </div>
@@ -44,7 +101,7 @@
                                 <div class="col-sm-6">
                                     <div class="carousel-content centered">
                                         <h2 class="boxed animation animated-item-1">Thư viện trường ĐH Khoa học Tự Nhiên TPHCM</h2>
-                                        <p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                        
                                         <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
                                     </div>
                                 </div>
@@ -83,17 +140,17 @@
 
 
 
-                        <div class="gly-link" id="search-btn"><h3><span class="glyphicon glyphicon-search gly-bigger"></span> Tìm kiếm</h3></div>
+                        <div class="gly-link" id="search-btn"><h3><span class="glyphicon glyphicon-search gly-bigger"></span> Tìm kiếm</h3></div><p id="searchwarning" style="color: red"></p>
                         <p></p>
                         <div class="widget search">
-                            <form role="form">
+                            
                                 <div class="input-group">
-                                    <input type="text" class="form-control" autocomplete="off" placeholder="Search">
+                                    <input type="text" class="form-control" id="searchtextbox" >
                                     <span class="input-group-btn">
-                                        <button class="btn btn-danger" type="button"><i class="icon-search"></i></button>
+                                        <button class="btn btn-danger" type="button" id="searchbutton"><i class="icon-search"></i></button>
                                     </span>
                                 </div>
-                            </form>
+                            
                         </div><!--/.search-->
 
 
@@ -107,10 +164,10 @@
         </section><!--/#services-->
         <section id="recent-works">
             <div class="container">
-                <div class="row">
+                <div class="row" id="contentbook">
                     <div class="col-md-3">
                         <h3>Sách mới</h3>
-                        <p>  et netus et malesuada fames ac turpis egestas.</p>
+                        <p>   </p>
                         <div class="btn-group">
                             <a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
                             <a class="btn btn-danger" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
@@ -218,28 +275,28 @@
                     <div class="col-lg-12">
                         <div class="center">
                             <h2>Các dịch vụ chính</h2>
-                            <p>  et netus et malesuada fames ac turpis egestas.</p>
+                            <p>   </p>
                         </div>
                         <div class="gap"></div>
                         <div class="row">
                             <div class="col-md-6">
                                 <blockquote>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                    <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                                    <p>  </p>
+                                    <small>   <cite title="  ">  </cite></small>
                                 </blockquote>
                                 <blockquote>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                    <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                                    <p>  </p>
+                                    <small>   <cite title="  ">  </cite></small>
                                 </blockquote>
                             </div>
                             <div class="col-md-6">
                                 <blockquote>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                    <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                                    <p>  </p>
+                                    <small>   <cite title="  ">  </cite></small>
                                 </blockquote>
                                 <blockquote>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                    <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                                    <p>  </p>
+                                    <small>   <cite title="  ">  </cite></small>
                                 </blockquote>
                             </div>
                         </div>

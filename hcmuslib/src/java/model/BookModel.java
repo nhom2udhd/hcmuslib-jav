@@ -7,14 +7,18 @@ package model;
 import entity.*;
 import java.util.*;
 import org.hibernate.*;
-public class BmTacGiaSachModel {
+/**
+ *
+ * @author Shady
+ */
+public class BookModel {
     public int CountRow()
     {
             Session s = HibernateUtil.getSessionFactory().getCurrentSession();
-            List<Bmtacgia> lst = new ArrayList<Bmtacgia>();      
+            List<Sach> lst = new ArrayList<Sach>();      
             try {
                 s.beginTransaction();
-                lst = s.createCriteria(Bmtacgia.class).list();
+                lst = s.createCriteria(Sach.class).list();
                 s.getTransaction().commit();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -22,14 +26,14 @@ public class BmTacGiaSachModel {
             return lst.size();
     }
 
-    public List<Bmtacgia> getAll(int jxIndexPage, int jxPage)
+    public List<Sach> getAll(int jxIndexPage, int jxPage)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
-        List<Bmtacgia> lst = new ArrayList<Bmtacgia>();
-        String query = "select * from BMTACGIA";
+        List<Sach> lst = new ArrayList<Sach>();
+        String query = "select * from SACH";
         try {
             s.beginTransaction();
-            Query q = s.createSQLQuery(query).addEntity(Bmtacgia.class);
+            Query q = s.createSQLQuery(query).addEntity(Sach.class);
             q.setMaxResults(jxPage);
             q.setFirstResult(jxIndexPage*jxPage);
             lst = q.list();
@@ -40,29 +44,64 @@ public class BmTacGiaSachModel {
         return lst;
     }
     
-    public List<Bmtacgia> getAllList()
+    public Sach Find(String id)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
-        List<Bmtacgia> lst = new ArrayList<Bmtacgia>();
-        
+        List<Sach> lst = new ArrayList<Sach>();
+        Sach res = new Sach();
         try {
             s.beginTransaction();
-            lst = s.createCriteria(Bmtacgia.class).list();
-            
+            lst = s.createCriteria(Sach.class).list();                          
+            for(int i = 0; i < lst.size();i++)
+            {
+                if(lst.get(i).getIdSach().equals(id))
+                    res = lst.get(i);
+            }                          
+            s.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+    
+    public List<Sach> getAllList(String key)
+    {
+        Session s = HibernateUtil.getSessionFactory().getCurrentSession();
+        List<Sach> lst = new ArrayList<Sach>();
+        
+        try {
+            s.beginTransaction();           
+            if(!key.isEmpty())              
+            {
+                lst = s.createCriteria(Sach.class).list();
+                List<Sach> temp = new ArrayList<Sach>();
+                for(int i = 0; i < lst.size();i++)
+                {
+                    if(lst.get(i).getBmnhandechinh().getNhanDeChinh().contains(key)
+                            || lst.get(i).getBmtacgia().getHoTen().contains(key)
+                            || lst.get(i).getBmtacgia().getButDanh().contains(key))
+                        temp.add(lst.get(i));
+                }
+                lst = temp;
+            }                
             s.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return lst;
     }
+        
+        
     
-    public boolean Create(Bmtacgia e)
+    
+    /*
+    public boolean Create(Sach e)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();     
         try
         {
             s.beginTransaction();
-            Query q = s.createSQLQuery("insert into dbo.BMTACGIA(ID_TAC_GIA, HO_TEN, BUT_DANH, THONG_TIN_BO_SUNG, TINH_TRANG) "
+           /* Query q = s.createSQLQuery("insert into dbo.BMTACGIA(ID_TAC_GIA, HO_TEN, BUT_DANH, THONG_TIN_BO_SUNG, TINH_TRANG) "
                     + "values(:idtacgia,:hoten,:butdanh,:tt,:tinhtrang)");
             q.setParameter("idtacgia", e.getIdTacGia());
             q.setParameter("hoten", e.getHoTen());
@@ -70,7 +109,7 @@ public class BmTacGiaSachModel {
             q.setParameter("tt", e.getThongTinBoSung());
             q.setParameter("tinhtrang", e.getTinhTrang());
             q.executeUpdate();
-            //s.save(e);
+            s.save(e);
             s.getTransaction().commit();
             return true;
         }
@@ -83,12 +122,12 @@ public class BmTacGiaSachModel {
     }
     
     public String createID(){
-        List<Bmtacgia> lst=this.getAllList();
+        List<Sach> lst=this.getAllList();
         Random r=new Random();
         int num=r.nextInt(99999999);
         String id=String.format("TG%08d", num);
         int i=0;
-        Bmtacgia p = lst.get(0);
+      Sach p = lst.get(0);
         while (id.equals(p.getIdTacGia())){
             num=r.nextInt(99999999);
             id=String.format("TG%08d", num);
@@ -98,7 +137,7 @@ public class BmTacGiaSachModel {
         return id;
     }
     
-    public boolean Remove(Bmtacgia e)
+    public boolean Remove(Sach e)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
         try
@@ -116,7 +155,7 @@ public class BmTacGiaSachModel {
         }
     }
     
-    public boolean Edit(Bmtacgia e)
+    public boolean Edit(Sach e)
     {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
         try
@@ -132,22 +171,5 @@ public class BmTacGiaSachModel {
             s.getTransaction().rollback();
             return false;
         }
-    }
-      
-    public String Find(String key)
-    {
-        Session s = HibernateUtil.getSessionFactory().getCurrentSession();        
-        String nhande = null;
-        try {
-            s.beginTransaction();
-            String query = "select but_danh from BMNHANDECHINH where id_tac_gia = :keyword";
-            Query q = s.createSQLQuery(query);
-            q.setParameter("keyword", key);
-            nhande = q.toString();
-            s.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return nhande;
-    }
+    }*/
 }
