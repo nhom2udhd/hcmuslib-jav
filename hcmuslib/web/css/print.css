@@ -1,0 +1,25 @@
+
+/* Black prints faster */
+
+/* attach this class to DOM elements that need to appear in the printout */
+.printMe {
+    visibility: visible;
+}
+
+
+
+.showInPrint {
+    display: block!important;
+    visibility: visible !important;
+}
+
+.hideInPrint {
+    display: none;
+}
+
+.printIScroll {
+    overflow: visible !important;
+    width: auto;
+    height: auto;
+}
+

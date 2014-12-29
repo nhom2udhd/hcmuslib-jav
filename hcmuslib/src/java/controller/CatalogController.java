@@ -154,4 +154,9 @@ public class CatalogController {
         
         return "catalog/bmnxb";
     }
+    @RequestMapping(value = "/generateQRCode")
+    public String generateQRCode(){
+        return "catalog/generateQRCode";
+
+    };
 }
