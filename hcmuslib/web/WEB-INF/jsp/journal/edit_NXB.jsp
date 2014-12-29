@@ -27,30 +27,31 @@
         <section id="chinh_sua_nha_xuat_ban" class="container">
             <div class="row">
                 <f:form action="update_NXB.htm" modelAttribute="NXB">
-                    <input type="hidden" path="idNxb" value="${n_x_b.idNxb}"/>
+                    <input type="hidden" name="idNxb" value="${n_x_b.idNxb}"/>
                     <div class="col-sm-6">
 			<h4>Tên nhà xuất bản:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" path="tenNxb" value="${n_x_b.tenNxb}" class="form-control" required="required">
+                                <input type="text" name="tenNxb" value="${n_x_b.tenNxb}" class="form-control" required="required">
                             </div></div>
                         </div>
                         <h4>Ngày thành lập:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" path="ngayThanhLap" value="${n_x_b.ngayThanhLap}" class="form-control" required="required">
+                                <fmt:formatDate value="${n_x_b.ngayThanhLap}" var="dateString" pattern="dd/mm/yyyy" />
+                                <input type="date" name="ngayThanhLap" value="${n_x_b.ngayThanhLap}" class="form-control" required="required">
                             </div></div>
                         </div>
                         <h4>Thông tin bổ sung:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" path="thongTinBoSung" value="${n_x_b.thongTinBoSung}" class="form-control" required="required">
+                                <input type="text" name="thongTinBoSung" value="${n_x_b.thongTinBoSung}" class="form-control" required="required">
                             </div></div>
                         </div>
                         <h4>Tình trạng:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" path="tinhTrang" value="${n_x_b.tinhTrang}" class="form-control" required="required">
+                                <input type="text" name="tinhTrang" value="${n_x_b.tinhTrang}" class="form-control" required="required">
                             </div></div>
                         </div>
                         <div class="form-group">

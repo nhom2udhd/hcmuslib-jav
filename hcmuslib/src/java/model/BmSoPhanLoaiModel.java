@@ -87,4 +87,22 @@ public class BmSoPhanLoaiModel {
         }
         return spl;
     }
+    
+    public String createID_SPL()
+    {
+        List<Bmsophanloai> lst = this.getAll();
+        Random r = new Random();
+        int num = r.nextInt(99999999);
+        String id = String.format("SPL%08d", num);
+        int i = 0;
+        Bmsophanloai p = lst.get(0);
+        while (id.equals(p.getIdSpl()))
+        {
+            num = r.nextInt(99999999);
+            id = String.format("SPL%08d", num);
+            i++;
+            p = lst.get(i);
+        }
+        return id;
+    }
 }

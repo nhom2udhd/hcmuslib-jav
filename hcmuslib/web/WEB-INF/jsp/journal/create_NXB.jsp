@@ -36,7 +36,7 @@
                         <h4>Ngày thành lập:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" path="ngayThanhLap" class="form-control" required="required">
+                                <input type="date" path="ngayThanhLap" class="form-control" required="required">
                             </div></div>
                         </div>
                         <h4>Thông tin bổ sung:</h4>

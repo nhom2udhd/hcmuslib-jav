@@ -32,25 +32,25 @@
 			<h4>Họ tên:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" name="soPhanLoai" value="${t_g.hoTen}" class="form-control" required="required">
+                                <input type="text" name="hoTen" value="${t_g.hoTen}" class="form-control" required="required">
                             </div></div>
                         </div>
                         <h4>Bút danh:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" name="soPhanLoai" value="${t_g.butDanh}" class="form-control" required="required">
+                                <input type="text" name="butDanh" value="${t_g.butDanh}" class="form-control" required="required">
                             </div></div>
                         </div>
                         <h4>Thông tin bổ sung:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" name="soPhanLoai" value="${t_g.thongTinBoSung}" class="form-control" required="required">
+                                <input type="text" name="thongTinBoSung" value="${t_g.thongTinBoSung}" class="form-control" required="required">
                             </div></div>
                         </div>
                         <h4>Tình trạng:</h4>
                         <div class="row">
                             <div class="col-sm-11"><div class="form-group">
-                                <input type="text" name="soPhanLoai" value="${t_g.tinhTrang}" class="form-control" required="required">
+                                <input type="text" name="tinhTrang" value="${t_g.tinhTrang}" class="form-control" required="required">
                             </div></div>
                         </div>
                         <div class="form-group">

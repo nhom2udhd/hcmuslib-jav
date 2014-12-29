@@ -58,6 +58,7 @@ public class JournalController {
     @RequestMapping(value = "/create_NXB", method = RequestMethod.POST)
     public String Create_NXB(@ModelAttribute(value = "NXB") Bmnxb nxb) {
         BmNXBModel model = new BmNXBModel();
+        nxb.setIdNxb(model.createID_NXB());
         model.Create(nxb);
         return "redirect:journal/bmNXB.htm";
     }
@@ -100,6 +101,7 @@ public class JournalController {
     @RequestMapping(value = "/create_SPL", method = RequestMethod.POST)
     public String Create_SPL(@ModelAttribute(value = "SPL") Bmsophanloai spl) {
         BmSoPhanLoaiModel model = new BmSoPhanLoaiModel();
+        spl.setIdSpl(model.createID_SPL());
         model.Create(spl);
         return "redirect:journal/bmSPL.htm";
     }
@@ -142,6 +144,7 @@ public class JournalController {
     @RequestMapping(value = "/create_TG", method = RequestMethod.POST)
     public String Create_TG(@ModelAttribute(value = "TG") Bmtacgia tg) {
         BmTacGiaModel model = new BmTacGiaModel();
+        tg.setIdTacGia(model.createID_TG());
         model.Create(tg);
         return "redirect:journal/bmTacGia.htm";
     }
@@ -149,5 +152,13 @@ public class JournalController {
     @RequestMapping(value = "/redirectCreate_TG", method = RequestMethod.GET)
     public String redirectCreate_TG() {
         return "journal/create_TG";
+    }
+    
+    @RequestMapping(value = "/bmAnPham", method = RequestMethod.GET)
+    public String getAll_AP(Model m)
+    {
+        AnPhamModel model = new AnPhamModel();
+        m.addAttribute("lst", model.getAll());
+        return "journal/bmAnPham";
     }
 }

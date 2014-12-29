@@ -87,5 +87,23 @@ public class BmNXBModel {
         }
         return nxb;
     }
+    
+    public String createID_NXB()
+    {
+        List<Bmnxb> lst = this.getAll();
+        Random r = new Random();
+        int num = r.nextInt(99999999);
+        String id = String.format("NXB%08d", num);
+        int i = 0;
+        Bmnxb p = lst.get(0);
+        while (id.equals(p.getIdNxb()))
+        {
+            num = r.nextInt(99999999);
+            id = String.format("NXB%08d", num);
+            i++;
+            p = lst.get(i);
+        }
+        return id;
+    }
 }
 
